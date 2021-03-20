@@ -5,34 +5,29 @@ const sql = require('sqlite3').verbose();
 
 router.get("/", function(req, res, next) {
 
-
     let response = []
-    let db = new sql.Database('../db/RecipesDB.db', sql.OPEN_READONLY, (err) => {
+
+    const sqlite3 = require('sqlite3').verbose();
+
+    // open the database
+    let db = new sqlite3.Database('../db/RecipesDB.db');
+
+    let sql = `SELECT * FROM RECIPES_LIST_ENGLISH;`;
+
+    db.all(sql, (err, rows) => {
         if (err) {
-            console.error(err.message);
+            throw err;
         }
-        console.log('Connected to the recipes database.');
-
-
-        db.serialize(function () {
-            db.each("select name, type, text from recipes_list_english where rowid = 10", function (err, table) {
-                console.log(table);
-                response.push(table)
-            });
+        rows.forEach((row) => {
+            response.push(row)
         });
-
-        db.close((err) => {
-            if (err) {
-                console.error(err.message);
-            }
-            console.log('Close the database connection.');
-        });
-
-
+        res.send(response);
     });
-    console.log("final response")
-    console.log(response)
-    res.send(response);
+
+    // close the database connection
+    db.close();  
+
 });
+
 
 module.exports = router;
