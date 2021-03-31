@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Banner from "./components/banner.js"
-import CategoryMosaic from './components/categorymosaic.js'
-import Navbar from './components/navbar.js'
+import Home from "./components/home.js"
+import About from "./components/about.js"
+//import { Router, Route, Switch } from 'react-router-dom';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 class App extends Component {
     constructor(props) {
@@ -24,16 +28,19 @@ class App extends Component {
 
     render() {
         return (
-                <div>
-
-                <Navbar/>
-                
-                <Banner />
-                
-                
-                <CategoryMosaic/>
+        <Router>
+            <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/about" component={About} />
+            </Switch>
+        </Router>
+           
+            /* <div>
+              <Route path="/home" component={Home} />
+              <Route path="/about" component={About} />
             </div>
-  
+            */
+
         );
     }
 }
