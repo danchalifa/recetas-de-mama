@@ -3,10 +3,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import Home from "./components/home.js"
 import About from "./components/about.js"
-//import { Router, Route, Switch } from 'react-router-dom';
+import Navbar from "./components/navbar.js"
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
     }
 
     callAPI() {
-        fetch("http://localhost:9000/testAPI")
+        fetch("http://localhost:9000/testAPI/recipes")
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }))
             .catch(err => err);
@@ -28,18 +28,14 @@ class App extends Component {
 
     render() {
         return (
-        <Router>
-            <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/about" component={About} />
-            </Switch>
-        </Router>
-           
-            /* <div>
-              <Route path="/home" component={Home} />
-              <Route path="/about" component={About} />
-            </div>
-            */
+            
+            <main>
+                <Navbar/>
+                <Switch>
+                    <Route path="/" component={Home} exact/>
+                     <Route path="/about" component={About} />
+                </Switch>
+            </main>
 
         );
     }
