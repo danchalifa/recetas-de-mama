@@ -7,29 +7,30 @@ export default class extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {apiResponse:[]};
     }
 
 
 
     componentDidMount() {
         fetch("http://localhost:9000/testAPI/types")
-            .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }))
+            .then(res => res.json())
+            .then(res => this.setState({ apiResponse: this.state.apiResponse.concat(res)}))
             .catch(err => err);
     }
 
 
     render() {
         let categories = ["Breakfast","Lunch","Dinner","Dessert","Snacks"]
-        // let categories = this.state.apiResponse;
+        let items = [...this.state.apiResponse];
 
+        // let categories = this.state.apiResponse;
         return (
             <div>
                 <div style={{ position: 'relative', textAlign: 'center', fontSize: "24px" }}>Categories</div>                  
 
                 <CardColumns style={{ position: 'relative', textAlign: 'center', fontSize: "24px" }}>
-                    {categories.map(category => (
+                    {items.map(category => (
                         <Category category={category} />
                     ))}
                 </CardColumns>  
