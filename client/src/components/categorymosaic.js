@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../images/tablecloth.jpeg'; // Tell webpack this JS file uses this image
 import Category from './category.js' 
-import {CardColumns} from 'react-bootstrap'
+import {CardDeck,CardColumns} from 'react-bootstrap'
+import './categorymosaic.css'
 
 export default class extends React.Component {
 
@@ -25,11 +26,11 @@ export default class extends React.Component {
             <div>
                 <div style={{ position: 'relative', textAlign: 'center', fontSize: "24px" }}>Categories</div>                  
 
-                <CardColumns style={{ position: 'relative', textAlign: 'center', fontSize: "24px" }}>
+                <CardColumns >
                     {this.state.apiResponse.map(category => (
                         <Category category={category} />
                     ))}
-                </CardColumns>  
+                </CardColumns>
 
                 
             </div>

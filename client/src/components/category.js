@@ -6,8 +6,8 @@ export default class extends React.Component {
 
     render() {
         return (
-            
-            <Card style={{ height: '14rem', width: '14rem', display: 'inlineBlock' }}>
+            <Card hoverable> 
+                <Card.Img variant="top" src="https://source.unsplash.com/user/erondu/600x400" />
                     <Card.Body>
                         <Card.Text>
                             {this.props.category}
