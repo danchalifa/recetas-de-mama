@@ -29,10 +29,12 @@ export default class extends React.Component {
         
         return (
             <div>
-            <h1 class="center">Categories</h1>
+            <div style={{marginTop: '100px'}}></div>
+            <h1 style={{textAlign: 'center'}}>Categories</h1>
             <Mosaic categories={this.state.categories}/>
-
             </div>
+
+
         )
     }
 
