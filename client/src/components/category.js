@@ -6,14 +6,11 @@ export default class extends React.Component {
 
     render() {
         return (
-            <Card hoverable> 
-                <Card.Img variant="top" src="https://source.unsplash.com/user/erondu/600x400" />
-                    <Card.Body>
-                        <Card.Text>
-                            {this.props.category}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
+            <div>
+                 <img src={"https://source.unsplash.com/user/erondu/600x400"} />
+                    {this.props.category}
+            </div>
+           
         )
     }
 
