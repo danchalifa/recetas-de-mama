@@ -41,19 +41,47 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: 1120,
+    height: 900,
   },
 }));
+
+// Function to determine the grid for recipes under the current category
+// function determineGrid(totalRecipes) {
+//   var pattern = [
+//     [1, 3, 1],
+//     [1, 2, 1, 1],
+//     [2, 1, 2],
+//   ];
+
+//   if (totalRecipes == 0) {
+//     return new Array[0][0]();
+//   }
+//   var grid = Array.from(Array(3), () => new Array(Math.ceil(totalRecipes / 5)));
+
+//   console.log("totalRecipes" + totalRecipes);
+
+//   console.log(grid);
+//   return grid;
+// }
 
 const RecipeMosaic = (props) => {
   const classes = useStyles();
   const history = useHistory();
+  const pattern = [1, 3, 1, 1, 2, 1, 1, 2, 1, 2];
+
+
+  for (let [index, val] of props.recipes.entries()) {
+    val["cols"] = pattern[index] % (pattern.length-1);
+    console.log(val["cols"]);
+  }
+
+  const totalRecipes = props.recipes.length;
 
   var handleClick = (recipe) => {
     var recipeParsed = recipe.Name.replace(/[^\w\s]/gi, "");
     var route = "/recipe/" + recipeParsed;
-    console.log(recipe)
+    console.log(recipe);
     history.push({
       pathname: route,
       state: { recipe: recipe },
@@ -62,11 +90,11 @@ const RecipeMosaic = (props) => {
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={160} className={classes.gridList} cols={7}>
+      <GridList cellHeight={160} className={classes.gridList} cols={5}>
         {props.recipes.map((recipe) => (
           <GridListTile
             key={recipe.Name}
-            cols={2 || 3}
+            cols={recipe.cols}
             onClick={() => handleClick(recipe)}
           >
             <img src={"https://source.unsplash.com/user/erondu/600x400"} />
