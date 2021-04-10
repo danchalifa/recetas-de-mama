@@ -11,6 +11,7 @@
     "react": "^16.4.2",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^16.4.2",
+    "react-fade-in": "^2.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "1.1.5",

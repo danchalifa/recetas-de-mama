@@ -4,6 +4,8 @@ import "./App.css";
 import Home from "./components/home.js"
 import About from "./components/about.js"
 import Navbar from "./components/navbar.js"
+import RecipeMosaic from "./components/recipemosaic.js"
+import Recipe from "./components/recipe"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -27,15 +29,15 @@ class App extends Component {
 
     render() {
         return (
-            
-            <main>
-                <Navbar/>
-                <Switch>
-                    <Route path="/" component={Home} exact/>
-                     <Route path="/about" component={About} />
-                </Switch>
-            </main>
-
+          <main>
+            <Navbar />
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route path="/about" component={About} />
+              <Route path="/category" component={RecipeMosaic} />
+              <Route path="/recipe" component={Recipe} />
+            </Switch>
+          </main>
         );
     }
 }

@@ -9,6 +9,9 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { useHistory, withRouter, Redirect } from 'react-router-dom'
+
+
 
 export default class extends React.Component {
     
@@ -22,6 +25,7 @@ export default class extends React.Component {
         fetch("http://localhost:9000/testAPI/types")
             .then(res => res.json())
             .then(res => this.setState({ categories: this.state.categories.concat(res)}))
+            .then(console.log(this.state.categories))
             .catch(err => err);
     }
 
@@ -62,16 +66,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 const Mosaic = (props)=> {
+  const history = useHistory();
   const classes = useStyles();
 
-  return (
+  var handleClick = (category) =>{
+    var categoryParsed = category.replace(/[^\w\s]/gi, '')
 
-    <div className={classes.root}>
-          <GridList className={classes.gridList} cols={2.5}>
+    var route = '/category/' + categoryParsed
+    console.log(category)
+    history.push(route)
+
+  } 
+
+  
+
+  return (
+    <div className={classes.root} >
+          <GridList className={classes.gridList} cols={2.5} >
             {props.categories.map((category) => (
-              <GridListTile >
+              <GridListTile onClick={() => handleClick(category)}>
                   <img src={"https://source.unsplash.com/user/erondu/600x400"} />
 
                 <GridListTileBar
@@ -90,7 +104,6 @@ const Mosaic = (props)=> {
             ))}
           </GridList>
         </div>
-
 
   );
 }

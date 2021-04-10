@@ -57,6 +57,36 @@ router.get("/types", function(req, res, next) {
 
 });
 
+router.get("/recipesForCategory/", function(req, res, next) {
+
+    let response = []
+
+    const sqlite3 = require('sqlite3').verbose();
+
+    // open the database
+    let db = new sqlite3.Database('../db/RecipesDB.db');
+
+
+    let sql = "SELECT Name, Text FROM RECIPES_LIST_ENGLISH where Type like ";
+    sql +=  "'" + req.query.category + "'"
+
+    db.all(sql, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        
+        rows.forEach((row) => {
+           response.push(row)
+        });
+        res.send(response);
+    });
+
+    // close the database connection
+    db.close();  
+
+});
+
+
 
 
 module.exports = router;

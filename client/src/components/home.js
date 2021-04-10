@@ -16,8 +16,6 @@ export default class extends React.Component {
 
                 <CategoryMosaic/>
 
-                <div></div>
-
             </div>
 
         )
