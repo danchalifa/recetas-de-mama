@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const sql = require('sqlite3').verbose();
 
-
+// Get Everything
 router.get("/recipes", function(req, res, next) {
 
     let response = []
@@ -29,7 +29,7 @@ router.get("/recipes", function(req, res, next) {
 
 });
 
-
+// Get Categories
 router.get("/types", function(req, res, next) {
 
     let response = []
@@ -57,6 +57,7 @@ router.get("/types", function(req, res, next) {
 
 });
 
+// Recipes within the Categories
 router.get("/recipesForCategory/", function(req, res, next) {
 
     let response = []
