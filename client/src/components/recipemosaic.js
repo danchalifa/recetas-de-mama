@@ -5,6 +5,11 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import FadeIn from "react-fade-in";
 import { useHistory, withRouter, Redirect } from "react-router-dom";
+import logo1 from '../images/color-palette/1.jpg'
+import logo2 from "../images/color-palette/2.jpg";
+import logo3 from "../images/color-palette/3.jpg";
+import logo4 from "../images/color-palette/4.jpg";
+import logo5 from "../images/color-palette/5.jpg";
 
 export default class extends React.Component {
   constructor(props) {
@@ -38,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
+    height:"100%",
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
@@ -46,34 +52,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// Function to determine the grid for recipes under the current category
-// function determineGrid(totalRecipes) {
-//   var pattern = [
-//     [1, 3, 1],
-//     [1, 2, 1, 1],
-//     [2, 1, 2],
-//   ];
-
-//   if (totalRecipes == 0) {
-//     return new Array[0][0]();
-//   }
-//   var grid = Array.from(Array(3), () => new Array(Math.ceil(totalRecipes / 5)));
-
-//   console.log("totalRecipes" + totalRecipes);
-
-//   console.log(grid);
-//   return grid;
-// }
 
 const RecipeMosaic = (props) => {
   const classes = useStyles();
   const history = useHistory();
-  const pattern = [1, 3, 1, 1, 2, 1, 1, 2, 1, 2];
+  // const pattern = [1, 3, 1, 1, 2, 1, 1, 2, 1, 2];
+  // val["cols"] = pattern[index] % (pattern.length - 1);
+  // let randNumOneThroughFour = Math.floor(Math.random() * 3) + 1;
+  
+  // Generate random mosaic
+  let currentRowSize = 0;
+  var weightedRandomNumber = () => {
+    var num = Math.floor(Math.random() * 100);
+    if (num < 40) return 1;
+    if (num < 80) return 2;
+    if (num < 100) return 3;
+  };
 
-
+  let randNumOneThroughThree = weightedRandomNumber();
+  console.log(randNumOneThroughThree);
   for (let [index, val] of props.recipes.entries()) {
-    val["cols"] = pattern[index] % (pattern.length-1);
-    console.log(val["cols"]);
+    if (index == props.recipes.length - 1) {
+      val["cols"] = 5 - currentRowSize;
+    } else {
+      randNumOneThroughThree = weightedRandomNumber();
+
+      if (currentRowSize + randNumOneThroughThree > 5) {
+        val["cols"] = 5 - currentRowSize;
+        currentRowSize = 0;
+      } else {
+        val["cols"] = randNumOneThroughThree;
+        currentRowSize += randNumOneThroughThree;
+
+        if (currentRowSize == 5) {
+          currentRowSize = 0;
+        }
+      }
+    }
   }
 
   const totalRecipes = props.recipes.length;
@@ -88,6 +103,22 @@ const RecipeMosaic = (props) => {
     });
   };
 
+  var getRandomLogo = () => {
+    var logoNumber = Math.floor(Math.random() * 5) + 1;
+    switch (logoNumber) {
+      case 1:
+        return <img src={logo1} style={{ pointerEvents: "none" }} />;
+      case 2:
+        return <img src={logo2} style={{ pointerEvents: "none" }} />;
+      case 3:
+        return <img src={logo3} style={{ pointerEvents: "none" }} />;
+      case 4:
+        return <img src={logo4} style={{ pointerEvents: "none" }} />;
+      case 5:
+        return <img src={logo5} style={{ pointerEvents: "none" }} />;
+    }
+  };
+
   return (
     <div className={classes.root}>
       <GridList cellHeight={160} className={classes.gridList} cols={5}>
@@ -97,7 +128,7 @@ const RecipeMosaic = (props) => {
             cols={recipe.cols}
             onClick={() => handleClick(recipe)}
           >
-            <img src={"https://source.unsplash.com/user/erondu/600x400"} />
+            {getRandomLogo()}
             <GridListTileBar title={recipe.Name} />
           </GridListTile>
         ))}
@@ -105,3 +136,4 @@ const RecipeMosaic = (props) => {
     </div>
   );
 };
+
