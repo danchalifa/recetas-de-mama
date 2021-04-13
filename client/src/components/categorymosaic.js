@@ -3,10 +3,9 @@ import logo from '../images/tablecloth.jpeg'; // Tell webpack this JS file uses 
 import Category from './category.js' 
 import './categorymosaic.css'
 
-import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useHistory, withRouter, Redirect } from 'react-router-dom'
@@ -46,23 +45,12 @@ export default class extends React.Component {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    flexGrow: 1,
   },
-  gridList: {
-    flexWrap: 'nowrap',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: 'translateZ(0)',
-  },
-  title: {
-    color: theme.palette.primary.light,
-  },
-  titleBar: {
-    background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
   },
 }));
 
@@ -71,9 +59,8 @@ const Mosaic = (props)=> {
   const classes = useStyles();
 
   var handleClick = (category) =>{
-    var categoryParsed = category.replace(/[^\w\s]/gi, '')
-
-    var route = '/category/' + categoryParsed
+    // var categoryParsed = category.replace(/[^\w\s]/gi, '')
+    var route = "/category/" + category;
     console.log(category)
     history.push(route)
 
@@ -82,28 +69,14 @@ const Mosaic = (props)=> {
   
 
   return (
-    <div className={classes.root} >
-          <GridList className={classes.gridList} cols={2.5} >
-            {props.categories.map((category) => (
-              <GridListTile onClick={() => handleClick(category)}>
-                  <img src={"https://source.unsplash.com/user/erondu/600x400"} />
-
-                <GridListTileBar
-                  title={category}
-                  classes={{
-                    root: classes.titleBar,
-                    title: classes.title,
-                  }}
-                  actionIcon={
-                    <IconButton aria-label={`star ${category}`}>
-                      <StarBorderIcon className={classes.title} />
-                    </IconButton>
-                  }
-                />
-              </GridListTile>
-            ))}
-          </GridList>
-        </div>
-
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+          {props.categories.map((category) => (
+              <Grid item xs={3} onClick={() => handleClick(category)}>
+                <Paper className={classes.paper}>{category}</Paper>
+              </Grid>
+          ))}
+      </Grid>
+    </div>
   );
 }
