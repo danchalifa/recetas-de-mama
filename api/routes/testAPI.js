@@ -10,9 +10,9 @@ router.get("/recipes", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB.db');
+    let db = new sqlite3.Database('../db/RecipesDB_v4.db');
 
-    let sql = `SELECT * FROM RECIPES_LIST_ENGLISH;`;
+    let sql = `SELECT * FROM RECIPES_FULL;`;
 
     db.all(sql, (err, rows) => {
         if (err) {
@@ -29,7 +29,7 @@ router.get("/recipes", function(req, res, next) {
 
 });
 
-// Get Categories
+// Get Categories in Spanish
 router.get("/types", function(req, res, next) {
 
     let response = []
@@ -37,9 +37,9 @@ router.get("/types", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB.db');
+    let db = new sqlite3.Database('../db/RecipesDB_v4.db');
 
-    let sql = `select DISTINCT type from RECIPES_LIST_ENGLISH
+    let sql = `select distinct type from CATEGORY_DIM
 `;
 
     db.all(sql, (err, rows) => {
@@ -65,17 +65,16 @@ router.get("/recipesForCategory/", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB.db');
+    let db = new sqlite3.Database('../db/RecipesDB_v4.db');
 
-
-    let sql = "SELECT Name, Text FROM RECIPES_LIST_ENGLISH where Type like ";
+    let sql = "SELECT Name, ingredientes, direcciones FROM RECIPES_FULL where Type like ";
     sql +=  "'" + req.query.category + "'"
 
     db.all(sql, (err, rows) => {
         if (err) {
             throw err;
         }
-        
+
         rows.forEach((row) => {
            response.push(row)
         });

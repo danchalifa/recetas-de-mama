@@ -13,7 +13,8 @@ import Banner from "../images/BannerMast.png";
 
 export default class extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); 
+    console.log(props)
   }
 
   render() {
@@ -27,8 +28,16 @@ export default class extends React.Component {
         </div>
         
         <div>
-          <p class="headerText"> Ingredients: </p>
-          <p class="bodyFormat">{this.props.location.state.recipe.Text} </p>
+          <p class="headerText"> Ingredientes: </p>
+          <br></br>
+          <div class="bodyFormat" dangerouslySetInnerHTML={{ __html: this.props.location.state.recipe.Ingredientes }} />
+          <br></br>
+        </div>
+
+        <div>
+          <p class="headerText"> Direcciones: </p>
+          <br></br>
+          <div class="bodyFormat" dangerouslySetInnerHTML={{ __html: this.props.location.state.recipe.Direcciones }} />
         </div>
       
     </div>
