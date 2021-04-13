@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Button,
@@ -10,14 +10,19 @@ import {
 } from "react-bootstrap";
 import "./recipe.css";
 import Banner from "../images/BannerMast.png";
+import AppContext from '../context/AppContext.js'
 
 export default class extends React.Component {
   constructor(props) {
+    // const myContext = useContext(AppContext);
+    // props.English = myContext.English
     super(props); 
-    console.log(props)
+    //console.log(props)
   }
 
   render() {
+
+    // console.log(this.props.English)
     return (
     <div>
         <div class="image">

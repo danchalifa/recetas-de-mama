@@ -4,7 +4,6 @@ import Banner from "./banner.js"
 import CategoryMosaic from './categorymosaic.js'
 import RecipeMosaic from './recipemosaic.js'
 
-
 export default class extends React.Component {
 
     render() {
