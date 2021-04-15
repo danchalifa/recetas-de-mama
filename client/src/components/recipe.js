@@ -20,9 +20,13 @@ export default class extends React.Component {
     //console.log(props)
   }
 
+  isEnglish = false
+
   render() {
 
-    // console.log(this.props.English)
+    this.isEnglish = window.English
+    console.log(window)
+    
     return (
     <div>
         <div class="image">

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Home from "./components/home.js"
@@ -7,11 +7,15 @@ import Navbar from "./components/navbar.js"
 import RecipeMosaic from "./components/recipemosaic.js"
 import Recipe from "./components/recipe"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import AppContext from './context/AppContext.js'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
-    constructor(props) {
+    
+  //static myContext = AppContext
+
+  constructor(props) {
         super(props);
         this.state = { apiResponse: "" };
     }
@@ -25,6 +29,8 @@ class App extends Component {
 
     componentDidMount() {
         this.callAPI();
+        const user = this.context
+
     }
 
     render() {
@@ -40,6 +46,8 @@ class App extends Component {
           </main>
         );
     }
+
+    
 }
 
 export default App;
