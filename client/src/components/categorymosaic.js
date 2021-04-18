@@ -11,7 +11,6 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useHistory, withRouter, Redirect } from 'react-router-dom'
 
 
-
 export default class extends React.Component {
     
     constructor(props) {
@@ -31,12 +30,12 @@ export default class extends React.Component {
     render() {
         
         return (
-            <div>
+
+            <div id="testID">
             <div style={{marginTop: '100px'}}></div>
             <h1 style={{textAlign: 'center'}}>Categories</h1>
             <Mosaic categories={this.state.categories}/>
             </div>
-
 
         )
     }

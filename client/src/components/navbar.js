@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap'
 import ToggleSwitch from './toggleswitch.js'
-
+import './categorymosaic.js'
 
 export default class extends React.Component {   
 
       render() {
         return (
-          <Navbar bg="light" expand="lg">
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar fixed='top' bg="light" expand="lg">
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/about">About</Nav.Link>
-                <Nav.Link href="/categories">Categories</Nav.Link>
-                <Nav.Link href="/shop">Shop</Nav.Link>
+                <Nav.Link class='nav-links' href="/">Home</Nav.Link>
+                <Nav.Link class='nav-links' href="#testID">Categories</Nav.Link>
+                <Nav.Link class='nav-links' href="/about">About</Nav.Link>
+                {/* <Nav.Link class='nav-links' href="/categories">Categories</Nav.Link> */}
+                {/* <Nav.Link class='nav-links' href="/shop">Shop</Nav.Link> */}
               </Nav>
 
               <Form inline>
@@ -28,7 +29,7 @@ export default class extends React.Component {
                   placeholder="Search"
                   className="mr-sm-2"
                 />
-                <Button variant="outline-success">Search</Button>
+                <Button class='nav-links' variant="outline-success">Search</Button>
               </Form>
             </Navbar.Collapse>
           </Navbar>

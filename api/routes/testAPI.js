@@ -68,7 +68,7 @@ router.get("/recipesForCategory/", function(req, res, next) {
     let db = new sqlite3.Database('../db/RecipesDB_v4.db');
 
     let sql =
-      "SELECT Name, ingredientes, direcciones, Ingredients_English, Directions_English FROM RECIPES_FULL where Type like ";
+      "SELECT Name, Name_English, ingredientes, direcciones, Ingredients_English, Directions_English, prep_time, cook_time FROM RECIPES_FULL where Type like ";
     sql +=  "'" + req.query.category + "'"
 
     db.all(sql, (err, rows) => {

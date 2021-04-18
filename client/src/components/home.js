@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Banner from "./banner.js"
 import CategoryMosaic from './categorymosaic.js'
 import RecipeMosaic from './recipemosaic.js'
+import FeaturedRecipes from './featuredrecipies.js'
+import Footer from './footer.js'
 
 export default class extends React.Component {
 
@@ -14,6 +16,10 @@ export default class extends React.Component {
                 <Banner />
 
                 <CategoryMosaic/>
+                <br></br>
+                <FeaturedRecipes/>
+
+                <Footer/>
 
             </div>
 
