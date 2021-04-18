@@ -1,33 +1,27 @@
 import React, {useContext} from 'react';
 import Switch from '@material-ui/core/Switch';
-import AppContext from '../context/AppContext.js'
 
-export default function Switches() {
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-  });
+export default class extends React.Component {
+  
+  constructor(){
+    super();
+  }
 
-  const handleChange = (event) => {
-   const myContext = useContext(AppContext);
-   setState({ ...state, [event.target.name]: event.target.checked });
-
-    if (event.target.checked) {
-      myContext.English = true
-        
-    } else {
-      myContext.English = false
-    }
+  handleChange = (event) => {
+    this.props.toggleHandler(event.target.checked);
   };
 
-  return (
-    <div>
-      <Switch
-            onChange={handleChange}
-            name="checkedA"
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
+  render() {
+    return (
+      <div>
+        <Switch
+          onChange={this.handleChange}
+          checked={this.checked}
+          name="checkedA"
+          inputProps={{ "aria-label": "secondary checkbox" }}
         />
-    </div>
-  );
+      </div>
+    );
+  }
 }
 

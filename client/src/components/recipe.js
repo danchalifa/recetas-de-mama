@@ -9,51 +9,92 @@ import {
   FormControl,
 } from "react-bootstrap";
 import "./recipe.css";
-import Banner from "../images/BannerMast.png";
-import AppContext from '../context/AppContext.js'
 
 export default class extends React.Component {
+  
   constructor(props) {
-    // const myContext = useContext(AppContext);
-    // props.English = myContext.English
     super(props); 
-    //console.log(props)
+    this.english = false;
   }
 
-  isEnglish = false
+  
 
   render() {
-
-    this.isEnglish = window.English
-    console.log(window)
-    
-    return (
-    <div>
-        <div class="image">
-            <p class="recipeTitle">{this.props.location.state.recipe.Name}
-                <h3 class="subHeader"> Cook Time: 15min </h3>
-                <h3 class="subHeader"> Prep Time: 15min </h3>
+      console.log(this.props.location.state)
+      console.log(this.props.english);
+    if (this.props.english){
+      return (
+        <div>
+          <div class="image">
+            <p class="recipeTitle">
+              {this.props.location.state.recipe.Name}
+              <h3 class="subHeader"> Cook Time: 15min </h3>
+              <h3 class="subHeader"> Prep Time: 15min </h3>
             </p>
-        </div>
-        
-        <div>
-          <p class="headerText"> Ingredientes: </p>
-          <br></br>
-          <div class="bodyFormat" dangerouslySetInnerHTML={{ __html: this.props.location.state.recipe.Ingredientes }} />
-          <br></br>
-        </div>
+          </div>
 
-        <div>
-          <p class="headerText"> Direcciones: </p>
-          <br></br>
-          <div class="bodyFormat" dangerouslySetInnerHTML={{ __html: this.props.location.state.recipe.Direcciones }} />
+          <div>
+            <p class="headerText"> Ingredients: </p>
+            <br></br>
+            <div
+              class="bodyFormat"
+              dangerouslySetInnerHTML={{
+                __html: this.props.location.state.recipe.Ingredients_English,
+              }}
+            />
+            <br></br>
+          </div>
+
+          <div>
+            <p class="headerText"> Directions: </p>
+            <br></br>
+            <div
+              class="bodyFormat"
+              dangerouslySetInnerHTML={{
+                __html: this.props.location.state.recipe.Directions_English,
+              }}
+            />
+          </div>
         </div>
+      );
+    } else {
+      return (
+        <div>
+          <div class="image">
+            <p class="recipeTitle">
+              {this.props.location.state.recipe.Name}
+              <h3 class="subHeader"> Cook Time: 15min </h3>
+              <h3 class="subHeader"> Prep Time: 15min </h3>
+            </p>
+          </div>
+
+          <div>
+            <p class="headerText"> Ingredientes: </p>
+            <br></br>
+            <div
+              class="bodyFormat"
+              dangerouslySetInnerHTML={{
+                __html: this.props.location.state.recipe.Ingredientes,
+              }}
+            />
+            <br></br>
+          </div>
+
+          <div>
+            <p class="headerText"> Direcciones: </p>
+            <br></br>
+            <div
+              class="bodyFormat"
+              dangerouslySetInnerHTML={{
+                __html: this.props.location.state.recipe.Direcciones,
+              }}
+            />
+          </div>
+        </div>
+      );
+
+    }
       
-    </div>
-
-
-
-    );
   }
 }
 
