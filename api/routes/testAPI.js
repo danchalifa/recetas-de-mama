@@ -39,7 +39,7 @@ router.get("/types", function(req, res, next) {
     // open the database
     let db = new sqlite3.Database('../db/RecipesDB_v4.db');
 
-    let sql = `select distinct type from CATEGORY_DIM
+    let sql = `select distinct type, type_english from CATEGORY_DIM
 `;
 
     db.all(sql, (err, rows) => {

@@ -17,8 +17,6 @@ export default class extends React.Component {
     this.english = false;
   }
 
-  
-
   render() {
       console.log(this.props.location.state)
       console.log(this.props.english);
@@ -28,7 +26,7 @@ export default class extends React.Component {
           <div class="image">
             <p class="recipeTitle">
               {this.props.location.state.recipe.Name_English}
-              <h3 class="subHeader"> Prep Time: 15min </h3>
+              <h3 class="subHeader"> {this.props.location.state.recipe.Prep_Time} min </h3>
               <h3 class="subHeader"> Cook Time: 15min </h3>
             </p>
           </div>

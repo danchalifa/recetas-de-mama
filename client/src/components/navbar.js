@@ -9,8 +9,8 @@ export default class extends React.Component {
       render() {
         return (
           <Navbar bg="light" expand="lg">
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <Nav.Link class='nav-links' href="/">Home</Nav.Link>
                 <Nav.Link class='nav-links' href="#testID">Categories</Nav.Link>

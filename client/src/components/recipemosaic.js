@@ -10,6 +10,7 @@ import logo2 from "../images/color-palette/2.jpg";
 import logo3 from "../images/color-palette/3.jpg";
 import logo4 from "../images/color-palette/4.jpg";
 import logo5 from "../images/color-palette/5.jpg";
+import './recipemosaic.css'
 
 export default class extends React.Component {
   constructor(props) {
@@ -29,10 +30,19 @@ export default class extends React.Component {
 
   render() {
     return (
-      <RecipeMosaic
-        categorySelected={this.category}
-        recipes={this.state.recipes}
-      />
+
+      <div>
+        <div>
+          <p class='headerClass'> RECIPES BY</p>
+          <p class='headerClass'>{this.category}</p>
+        </div>
+      
+        <RecipeMosaic
+          categorySelected={this.category}
+          recipes={this.state.recipes}
+        />
+
+      </div>
     );
   }
 }

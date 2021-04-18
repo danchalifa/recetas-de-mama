@@ -8,6 +8,7 @@ import RecipeMosaic from "./components/recipemosaic.js"
 import Recipe from "./components/recipe"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AppContext from './context/AppContext.js'
+import Footer from './components/footer.js'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -52,6 +53,8 @@ class App extends Component {
             render={(props) => <Recipe {...props} english={this.state.english} />}
           />
         </Switch>
+        <Footer/>
+        
       </main>
     );
   }

@@ -9,11 +9,11 @@ export default class extends React.Component {
             
             <div id={'About'}>
 
-                <div class="image">
+                <div class="imageClass">
 
                     <p class="title">
                         LAS RECETAS DE MAMA:
-                        <h1 class="subTitle"> HISTORIA </h1>
+                        <h1 class="subTitle"> LA HISTORIA </h1>
                     </p>
 
                 </div>
