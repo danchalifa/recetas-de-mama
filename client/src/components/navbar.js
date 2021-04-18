@@ -8,7 +8,7 @@ export default class extends React.Component {
 
       render() {
         return (
-          <Navbar fixed='top' bg="light" expand="lg">
+          <Navbar bg="light" expand="lg">
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
