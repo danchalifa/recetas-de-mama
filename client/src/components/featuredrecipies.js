@@ -9,16 +9,12 @@ export default class extends React.Component {
         return (
             <div>
                 <div style={{ position: 'relative', textAlign: 'center', fontSize: "24px" }}>Featured Recipes</div>
-
-
                 <CardColumns style={{ position: 'relative', textAlign: 'center', fontSize: "24px" }}>
 
                     {categories.map(category => (
                         <Category category={category} />
                     ))}
                 </CardColumns>
-
-
             </div>
         )
     }

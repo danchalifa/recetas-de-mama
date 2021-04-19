@@ -28,7 +28,6 @@ export default class extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
 
             <div id="testID">
@@ -60,12 +59,9 @@ const Mosaic = (props)=> {
   var handleClick = (category) =>{
     // var categoryParsed = category.replace(/[^\w\s]/gi, '')
     var route = "/category/" + category;
-    console.log(category)
-    history.push(route)
+    history.push(route,{...props})
 
   } 
-
-  
 
   return (
     <div className={classes.root}>
