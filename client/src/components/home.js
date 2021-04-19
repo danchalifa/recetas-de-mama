@@ -9,18 +9,14 @@ export default class extends React.Component {
 
     render() {
         return (
-            
-            <div id={'Home'}>
+          <div id={"Home"}>
+            <Banner />
 
-                <Banner />
-
-                <CategoryMosaic/>
-                <br></br>
-                <FeaturedRecipes/>
-
-            </div>
-
-        )
+            <CategoryMosaic {...this.props} />
+            <br></br>
+            <FeaturedRecipes {...this.props} />
+          </div>
+        );
     }
 
 }

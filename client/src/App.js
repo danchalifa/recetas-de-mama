@@ -45,16 +45,31 @@ class App extends Component {
       <main>
         <Navbar toggleHandler={this.toggleHandler} />
         <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/about" component={About} />
-          <Route path="/category" component={RecipeMosaic} />
+          <Route
+            path="/"
+            render={(props) => <Home {...props} english={this.state.english} />}
+            exact
+          />
+          <Route
+            path="/about"
+            render={(props) => (
+              <About {...props} english={this.state.english} />
+            )}
+          />
+          <Route
+            path="/category"
+            render={(props) => (
+              <RecipeMosaic {...props} english={this.state.english} />
+            )}
+          />
           <Route
             path="/recipe"
-            render={(props) => <Recipe {...props} english={this.state.english} />}
+            render={(props) => (
+              <Recipe {...props} english={this.state.english} />
+            )}
           />
         </Switch>
-        <Footer/>
-        
+        <Footer />
       </main>
     );
   }
