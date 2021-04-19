@@ -26,8 +26,8 @@ export default class extends React.Component {
           <div class="image">
             <p class="recipeTitle">
               {this.props.location.state.recipe.Name_English}
-              <h3 class="subHeader"> {this.props.location.state.recipe.Prep_Time} min </h3>
-              <h3 class="subHeader"> Cook Time: 15min </h3>
+              <h3 class="subHeader"> Prep Time: {this.props.location.state.recipe.Prep_Time} min </h3>
+              <h3 class="subHeader"> Cook Time: {this.props.location.state.recipe.Cook_Time} min </h3>
             </p>
           </div>
 
@@ -61,8 +61,8 @@ export default class extends React.Component {
           <div class="image">
             <p class="recipeTitle">
               {this.props.location.state.recipe.Name}
-              <h3 class="subHeader"> Tiempo de Preparacion: 15min </h3>
-              <h3 class="subHeader"> Tiempo de Concinar: 15min </h3>
+              <h3 class="subHeader"> Tiempo de Preparacion: {this.props.location.state.recipe.Prep_Time} min </h3>
+              <h3 class="subHeader"> Tiempo de Concinar: {this.props.location.state.recipe.Cook_Time} min </h3>
             </p>
           </div>
 
