@@ -57,7 +57,7 @@ const Mosaic = (props)=> {
   var handleClick = (category) =>{
     // var categoryParsed = category.replace(/[^\w\s]/gi, '')
     var route = "/category/" + category.CatID;
-    this.state.categoryInContext = category
+     
 
 
 

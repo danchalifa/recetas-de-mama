@@ -17,6 +17,8 @@ export default class extends React.Component {
     super(props);
     this.state = { recipes: [] };
     this.category = this.props.location.pathname.replace("/category/", "");
+    this.categorySelected="";
+    console.log(this.props.location)
   }
 
   componentDidMount() {
@@ -25,23 +27,26 @@ export default class extends React.Component {
     fetch(uri)
       .then((res) => res.json())
       .then((res) => this.setState({ recipes: this.state.recipes.concat(res) }))
+      .then(
+        (res) =>
+          (this.categorySelected = res.find((obj) => {
+            return obj.CatID === this.category;
+          }))
+      )
       .catch((err) => err);
   }
 
   render() {
 
-    console.log(this.props)
-
     return (
-
+      
       <div>
         <div>
           <p class='headerClass'> RECIPES BY</p>
-          <p class='headerClass'>{this.props.category}</p>
+          <p class='headerClass'>test</p>
         </div>
       
         <RecipeMosaic
-          categorySelected={this.category}
           recipes={this.state.recipes}
         />
 

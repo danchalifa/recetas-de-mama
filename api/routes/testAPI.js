@@ -69,6 +69,7 @@ router.get("/recipesForCategory/", function(req, res, next) {
 
     let sql =
       "SELECT Name, Name_English, ingredientes, direcciones, Ingredients_English, Directions_English, prep_time, cook_time, catid FROM RECIPES_FULL where catid =";
+      console.log(req.query)
     sql += req.query.category
 
     db.all(sql, (err, rows) => {
