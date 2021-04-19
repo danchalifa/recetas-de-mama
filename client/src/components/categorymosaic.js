@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../images/tablecloth.jpeg'; // Tell webpack this JS file uses this image
 import Category from './category.js' 
 import './categorymosaic.css'
 
