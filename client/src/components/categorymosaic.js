@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../images/tablecloth.jpeg'; // Tell webpack this JS file uses this image
 import Category from './category.js' 
 import './categorymosaic.css'
 
@@ -57,23 +56,37 @@ const Mosaic = (props)=> {
   var handleClick = (category) =>{
     // var categoryParsed = category.replace(/[^\w\s]/gi, '')
     var route = "/category/" + category.CatID;
-     
 
-
-
-    history.push(route,{...props})
+    history.push(route
+      ,{...props, categoryInContext:category})
 
   } 
 
-  return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-          {props.categories.map((category) => (
+  if(props.english){
+      return (
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+            {props.categories.map((category) => (
               <Grid item xs={3} onClick={() => handleClick(category)}>
                 <Paper className={classes.paper}>{category.Type}</Paper>
               </Grid>
-          ))}
-      </Grid>
-    </div>
-  );
+            ))}
+          </Grid>
+        </div>
+      );
+  } else {
+      return (
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+            {props.categories.map((category) => (
+              <Grid item xs={3} onClick={() => handleClick(category)}>
+                <Paper className={classes.paper}>{category.Type_English}</Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+      );
+  }
+
+
 }

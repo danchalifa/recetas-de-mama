@@ -37,21 +37,41 @@ export default class extends React.Component {
   }
 
   render() {
-
-    return (
-      
-      <div>
+    console.log(this.state) 
+    if(this.props.english){
+      return (
         <div>
-          <p class='headerClass'> RECIPES BY</p>
-          <p class='headerClass'>test</p>
-        </div>
-      
-        <RecipeMosaic
-          recipes={this.state.recipes}
-        />
+          <div>
+            <p class="headerClass"> RECIPES BY</p>
+            <p class="headerClass">
+              {this.props.location.state.categoryInContext.Type_English}
+            </p>
+          </div>
 
-      </div>
-    );
+          <RecipeMosaic
+            recipes={this.state.recipes}
+            english={this.props.english}
+          />
+        </div>
+      );
+    }else {
+      return (
+        <div>
+          <div>
+            <p class="headerClass"> RECETAS POR</p>
+            <p class="headerClass">
+              {this.props.location.state.categoryInContext.Type}
+            </p>
+          </div>
+
+          <RecipeMosaic
+            recipes={this.state.recipes}
+            english={this.props.english}
+          />
+        </div>
+      );
+    }
+    
   }
 }
 
@@ -137,21 +157,43 @@ const RecipeMosaic = (props) => {
     }
   };
 
-  return (
-    <div className={classes.root}>
-      <GridList cellHeight={160} className={classes.gridList} cols={5}>
-        {props.recipes.map((recipe) => (
-          <GridListTile
-            key={recipe.Name}
-            cols={recipe.cols}
-            onClick={() => handleClick(recipe)}
-          >
-            {getRandomLogo()}
-            <GridListTileBar title={recipe.Name} />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
-  );
+  if(props.english){
+    return (
+      <div className={classes.root}>
+        <GridList cellHeight={160} className={classes.gridList} cols={5}>
+          {props.recipes.map((recipe) => (
+            <GridListTile
+              key={recipe.Name}
+              cols={recipe.cols}
+              onClick={() => handleClick(recipe)}
+            >
+              {getRandomLogo()}
+              <GridListTileBar title={recipe.Name_English} />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+    );
+  }else{
+    return (
+      <div className={classes.root}>
+        <GridList cellHeight={160} className={classes.gridList} cols={5}>
+          {props.recipes.map((recipe) => (
+            <GridListTile
+              key={recipe.Name}
+              cols={recipe.cols}
+              onClick={() => handleClick(recipe)}
+            >
+              {getRandomLogo()}
+              <GridListTileBar title={recipe.Name} />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+    );
+  }
+
+
+  
 };
 
