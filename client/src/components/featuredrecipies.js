@@ -3,42 +3,79 @@ import Category from './category.js'
 import { CardColumns, Card, Button } from 'react-bootstrap'
 import './featuredrecipes.css'
 
-import '../images/featuredRecipes/recipe1.jpg'
-import '../images/featuredRecipes/recipe2.jpg'
-import '../images/featuredRecipes/recipe3.jpg'
+import RecipeOne from '../images/featuredRecipes/recipe1.jpg'
+import RecipeTwo from '../images/featuredRecipes/recipe2.jpg'
+import RecipeThree from '../images/featuredRecipes/recipe3.jpg'
+
 
 export default class extends React.Component {
-
+    
     render() {
+
+        console.log(this.props.english)
         let categories = ["Enchiladas", "Pastel de Chocolate", "Chorizo"]
-        return (
-            <div>
-                <div style={{ position: 'relative', textAlign: 'center', fontSize: "24px" }}>
-                    Featured Recipes
+        
+        if (this.props.english) {
+            return (
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src='../images/featuredRecipes/recipe1.jpg' alt="Card image cap"/>
+                        <div class="card-block">
+                        <h4 class="card-title">Green Enchiladas</h4>
+                        <p class="card-text">Try making these motherfuckers on your day off</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <Button variant="primary">See Recipe</Button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="../images/featuredRecipes/recipe2.jpg" />
+                        <div class="card-block">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="../images/featuredRecipes/recipe3.jpg" alt="Card image cap"/>
+                        <div class="card-block">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
                 </div>
-                
-                <CardColumns style={{ position: 'relative', textAlign: 'center', fontSize: "24px" }}>
-
-                    {categories.map(category => (
-                        <Category category={category} />
-                    ))}
-                </CardColumns>
-
-                <Card style={{ width: '18rem' }}>
-
-  <Card.Img variant="top" src="holder.js/100px180" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
-
-            </div>
-        )
+            )
+        } else {
+            return(
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src='../images/featuredRecipes/recipe1.jpg' alt="Card image cap"/>
+                        <div class="card-block">
+                        <h4 class="card-title">Enchiladas Verdes</h4>
+                        <p class="card-text">Try making these motherfuckers on your day off</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <Button variant="primary">See Recipe</Button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="../images/featuredRecipes/recipe2.jpg" />
+                        <div class="card-block">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="../images/featuredRecipes/recipe3.jpg" alt="Card image cap"/>
+                        <div class="card-block">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
     }
 
 }
