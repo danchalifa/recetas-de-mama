@@ -102,7 +102,7 @@ export default class extends React.Component {
                     <br></br><br></br>
                     Cuando preparo estas comidas, el aroma me transporta a ti y espero que mis hijos sientan lo mismo cada vez que ellos preparen alguna de estas rectas.
                     <br></br><br></br>
-                    Tambien gracies a mi maravillos y Ch.P.T marido, mi Pancho, por su dedicacion y paciencie en la preparacion de esto libro. A mi preciosas Patty por probar cada una de 
+                    Tambien gracies a mi maravillos y Ch.P.T marido, mi Pancho, por su dedicacion y paciencie en la preparacion de esto libro. A mi preciosa Patty por probar cada una de 
                     estas recetas y dar su opinion, y a mi adorado Danny por el diseno de la portada.
                     <br></br><br></br>
                     <b>Tu hija,

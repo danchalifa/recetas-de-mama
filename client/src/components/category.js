@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../images/tablecloth.jpeg'; // Tell webpack this JS file uses this image
 import { Card,Nav,Button } from 'react-bootstrap'
 
 export default class extends React.Component {
