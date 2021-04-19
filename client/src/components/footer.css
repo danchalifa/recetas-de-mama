@@ -1,4 +1,4 @@
-.footerText{
+.footer{
     font-size: 16px;
     color: white;
     background-color: rgb(60, 60, 60);
@@ -7,4 +7,9 @@
     margin-top: 50px;
     line-height: 50px;
     
+}
+
+.footerText{
+    font-size: 16px;
+    margin-left: 20px;
 }

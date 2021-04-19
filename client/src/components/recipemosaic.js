@@ -29,12 +29,15 @@ export default class extends React.Component {
   }
 
   render() {
+
+    console.log(this.props)
+
     return (
 
       <div>
         <div>
           <p class='headerClass'> RECIPES BY</p>
-          <p class='headerClass'>{this.category}</p>
+          <p class='headerClass'>{this.props.category}</p>
         </div>
       
         <RecipeMosaic

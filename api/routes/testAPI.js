@@ -39,7 +39,7 @@ router.get("/types", function(req, res, next) {
     // open the database
     let db = new sqlite3.Database('../db/RecipesDB_v4.db');
 
-    let sql = `select distinct type, type_english from CATEGORY_DIM
+    let sql = `select * from CATEGORY_DIM
 `;
 
     db.all(sql, (err, rows) => {
@@ -47,7 +47,7 @@ router.get("/types", function(req, res, next) {
             throw err;
         }
         rows.forEach((row) => {
-            response.push(row.Type)
+            response.push(row)
         });
         res.send(response);
     });
@@ -68,8 +68,8 @@ router.get("/recipesForCategory/", function(req, res, next) {
     let db = new sqlite3.Database('../db/RecipesDB_v4.db');
 
     let sql =
-      "SELECT Name, Name_English, ingredientes, direcciones, Ingredients_English, Directions_English, prep_time, cook_time FROM RECIPES_FULL where Type like ";
-    sql +=  "'" + req.query.category + "'"
+      "SELECT Name, Name_English, ingredientes, direcciones, Ingredients_English, Directions_English, prep_time, cook_time, catid FROM RECIPES_FULL where catid =";
+    sql += req.query.category
 
     db.all(sql, (err, rows) => {
         if (err) {

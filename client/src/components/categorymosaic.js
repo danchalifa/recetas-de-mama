@@ -15,15 +15,13 @@ export default class extends React.Component {
     
     constructor(props) {
         super(props);
-        this.state = {categories:[]};
-        
+        this.state = {categories:[], categoryInContext: {} };
     }
 
     componentDidMount() {
         fetch("http://localhost:9000/testAPI/types")
             .then(res => res.json())
             .then(res => this.setState({ categories: this.state.categories.concat(res)}))
-            .then(console.log(this.state.categories))
             .catch(err => err);
     }
 
@@ -58,7 +56,15 @@ const Mosaic = (props)=> {
 
   var handleClick = (category) =>{
     // var categoryParsed = category.replace(/[^\w\s]/gi, '')
-    var route = "/category/" + category;
+    var route = "/category/" + category.CatID;
+    this.state.categoryInContext = category
+
+    let letState = [...this.state.items];
+     
+
+    this.setState({items});
+
+
     history.push(route,{...props})
 
   } 
@@ -68,7 +74,7 @@ const Mosaic = (props)=> {
       <Grid container spacing={3}>
           {props.categories.map((category) => (
               <Grid item xs={3} onClick={() => handleClick(category)}>
-                <Paper className={classes.paper}>{category}</Paper>
+                <Paper className={classes.paper}>{category.Type}</Paper>
               </Grid>
           ))}
       </Grid>
