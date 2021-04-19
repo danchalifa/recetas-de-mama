@@ -30,7 +30,7 @@ export default class extends React.Component {
             <div id="testID">
             <div style={{marginTop: '100px'}}></div>
             <h1 style={{textAlign: 'center'}}>Categories</h1>
-            <Mosaic categories={this.state.categories}/>
+            <Mosaic categories={this.state.categories} english={this.props.english}/>
             </div>
 
         )
@@ -61,14 +61,13 @@ const Mosaic = (props)=> {
       ,{...props, categoryInContext:category})
 
   } 
-
   if(props.english){
       return (
         <div className={classes.root}>
           <Grid container spacing={3}>
             {props.categories.map((category) => (
               <Grid item xs={3} onClick={() => handleClick(category)}>
-                <Paper className={classes.paper}>{category.Type}</Paper>
+                <Paper className={classes.paper}>{category.Type_English}</Paper>
               </Grid>
             ))}
           </Grid>
@@ -80,7 +79,7 @@ const Mosaic = (props)=> {
           <Grid container spacing={3}>
             {props.categories.map((category) => (
               <Grid item xs={3} onClick={() => handleClick(category)}>
-                <Paper className={classes.paper}>{category.Type_English}</Paper>
+                <Paper className={classes.paper}>{category.Type}</Paper>
               </Grid>
             ))}
           </Grid>
