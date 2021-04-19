@@ -59,10 +59,6 @@ const Mosaic = (props)=> {
     var route = "/category/" + category.CatID;
     this.state.categoryInContext = category
 
-    let letState = [...this.state.items];
-     
-
-    this.setState({items});
 
 
     history.push(route,{...props})
