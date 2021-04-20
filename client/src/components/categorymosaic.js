@@ -51,9 +51,14 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.secondary,
-    height: 250,
-    width: 250,
+    backgroundColor: "#8675bb",
+    fontSize:"large"
+  },
+  paper2: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    backgroundColor: "#9f7dba",
+    fontSize:"large"
   },
 }));
 
@@ -72,10 +77,18 @@ const Mosaic = (props)=> {
   if(props.english){
       return (
         <div className={classes.root}>
-          <Grid container spacing={3}>
-            {props.categories.map((category) => (
+          <Grid container spacing={4}>
+            {props.categories.map((category,index) => (
               <Grid item xs={3} onClick={() => handleClick(category)}>
-                <Paper className={classes.paper}>{category.Type_English}</Paper>
+                {index % 2 == 0 ? (
+                  <Paper className={classes.paper}>
+                    {category.Type_English}
+                  </Paper>
+                ) : (
+                  <Paper className={classes.paper2}>
+                    {category.Type_English}
+                  </Paper>
+                )}
               </Grid>
             ))}
           </Grid>
@@ -84,10 +97,14 @@ const Mosaic = (props)=> {
   } else {
       return (
         <div className={classes.root}>
-          <Grid container spacing={3}>
-            {props.categories.map((category) => (
+          <Grid container  spacing={3}>
+            {props.categories.map((category, index) => (
               <Grid item xs={3} onClick={() => handleClick(category)}>
-                <Paper className={classes.paper}>{category.Type}</Paper>
+                {index%2==0 ? (
+                  <Paper className={classes.paper}>{category.Type}</Paper>
+                ) : (
+                  <Paper className={classes.paper2}>{category.Type}</Paper>
+                )}
               </Grid>
             ))}
           </Grid>
@@ -97,3 +114,4 @@ const Mosaic = (props)=> {
 
 
 }
+
