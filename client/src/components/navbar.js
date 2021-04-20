@@ -13,7 +13,7 @@ export default class extends React.Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <Nav.Link class='nav-links' href="/">Home</Nav.Link>
-                <Nav.Link class='nav-links' href="#testID">Categories</Nav.Link>
+                <Nav.Link class='nav-links' href="/#categories">Categories</Nav.Link>
                 <Nav.Link class='nav-links' href="/about">About</Nav.Link>
                 {/* <Nav.Link class='nav-links' href="/categories">Categories</Nav.Link> */}
                 {/* <Nav.Link class='nav-links' href="/shop">Shop</Nav.Link> */}
