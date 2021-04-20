@@ -26,12 +26,12 @@ export default class extends React.Component {
 
     render() {
         return (
-          <div id="testID">
+          <div id="testID" style={{paddingLeft: '50px', paddingRight: '50px'}}>
             <div style={{ marginTop: "100px" }}></div>
             {this.props.english ? (
-              <h1 style={{ textAlign: "center" }}>Categories</h1>
+              <h1 style={{ textAlign: "center", fontWeight: 'bold'}}>Categories</h1>
             ) : (
-              <h1 style={{ textAlign: "center" }}>Categorias</h1>
+              <h1 style={{ textAlign: "center", fontWeight: 'bold'}}>Categorias</h1>
             )}
 
             <Mosaic
@@ -52,13 +52,17 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
     backgroundColor: "#8675bb",
-    fontSize:"large"
+    fontSize:"large",
+    fontWeight: "bold",
+    color: 'white'
   },
   paper2: {
     padding: theme.spacing(2),
     textAlign: "center",
     backgroundColor: "#9f7dba",
-    fontSize:"large"
+    fontSize:"large",
+    fontWeight: "bold",
+    color: 'white'
   },
 }));
 
@@ -79,8 +83,8 @@ const Mosaic = (props)=> {
         <div className={classes.root}>
           <Grid container spacing={4}>
             {props.categories.map((category,index) => (
-              <Grid item xs={3} onClick={() => handleClick(category)}>
-                {index % 2 == 0 ? (
+              <Grid item xs={4} onClick={() => handleClick(category)}>
+                {index % 2 == 0 || index%3==2 ? (
                   <Paper className={classes.paper}>
                     {category.Type_English}
                   </Paper>
@@ -99,8 +103,8 @@ const Mosaic = (props)=> {
         <div className={classes.root}>
           <Grid container  spacing={3}>
             {props.categories.map((category, index) => (
-              <Grid item xs={3} onClick={() => handleClick(category)}>
-                {index%2==0 ? (
+              <Grid item xs={4} onClick={() => handleClick(category)}>
+                {index%3==0 || index%3==2 ? (
                   <Paper className={classes.paper}>{category.Type}</Paper>
                 ) : (
                   <Paper className={classes.paper2}>{category.Type}</Paper>

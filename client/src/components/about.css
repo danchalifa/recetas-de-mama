@@ -1,9 +1,9 @@
 .mainDiv{
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 20%;
+    margin-right: 20%;
     background: white;
     padding-left: 5%;
-    padding-right: 5%;
+    padding-right: 5%;;
 }
 
 .outerDiv{
@@ -21,7 +21,7 @@
 
 .bookImage {
     float:right;
-    margin-top: 120px;
+    margin-left: 20px;
 }
 
 .title{
@@ -42,7 +42,6 @@
     font-weight: bold;
     font-size: 40px;
     color: black;
-
 }
 
 .subTitle {
@@ -63,5 +62,5 @@
 
 .headBody{
     text-align: left;
-    font-size: 30px;
+    font-size: 36px;
 }

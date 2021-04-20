@@ -13,7 +13,6 @@ export default class extends React.Component {
             <Banner />
 
             <CategoryMosaic {...this.props} />
-            <br></br>
             <FeaturedRecipes {...this.props} />
           </div>
         );

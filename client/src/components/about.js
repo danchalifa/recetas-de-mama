@@ -28,11 +28,8 @@ export default class extends React.Component {
                     <div>
                         <p class='headBody'>
                             <br></br>
-                            filler text to put on here here is even more text to put on here so that It looks like there is text
-                            <br></br>
-                            adding even mroe content to make it look like there is content. Even more filler text to make it look like there is more writing here than there really
-                            <br></br>
-                            and lastly one more line of text to really make it look like there is more here than there is
+                            This website is dedicated to the two generations of family recipes that have been passed down through our family.
+                            What started out as word of mouth tradition, progressed into a book, and now finally a modern web layout, the recipes curated on this website are free for all to enjoy.
                             <br></br><br></br>
                         </p>
                     </div>
@@ -82,11 +79,8 @@ export default class extends React.Component {
                 <div>
                     <p class='headBody'>
                         <br></br>
-                        filler text to put on here here is even more text to put on here so that It looks like there is text
-                        <br></br>
-                        adding even mroe content to make it look like there is content. Even more filler text to make it look like there is more writing here than there really
-                        <br></br>
-                        and lastly one more line of text to really make it look like there is more here than there is
+                        Este sitio esta dedicado a las dos generaciones de recetas de nuestra familia que an pasado por los años.
+                        Lo que empezo como tradiciones se econtro en un libro, y finalmente en un formato de web. Las recetas almacenadas en este sitio son gratis para que todos disfruten.
                         <br></br><br></br>
                     </p>
                 </div>
