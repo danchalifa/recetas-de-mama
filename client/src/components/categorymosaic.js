@@ -26,14 +26,20 @@ export default class extends React.Component {
 
     render() {
         return (
+          <div id="testID">
+            <div style={{ marginTop: "100px" }}></div>
+            {this.props.english ? (
+              <h1 style={{ textAlign: "center" }}>Categories</h1>
+            ) : (
+              <h1 style={{ textAlign: "center" }}>Categorias</h1>
+            )}
 
-            <div id="testID">
-            <div style={{marginTop: '100px'}}></div>
-            <h1 style={{textAlign: 'center'}}>Categories</h1>
-            <Mosaic categories={this.state.categories} english={this.props.english}/>
-            </div>
-
-        )
+            <Mosaic
+              categories={this.state.categories}
+              english={this.props.english}
+            />
+          </div>
+        );
     }
 
 }
@@ -46,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+    height: 250,
+    width: 250,
   },
 }));
 
