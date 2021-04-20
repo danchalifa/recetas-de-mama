@@ -1,76 +1,99 @@
 import React, { Component } from 'react';
 import Category from './category.js'
-import { CardColumns, Card, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import './featuredrecipes.css'
+import { useHistory } from "react-router-dom";
+
 
 import RecipeOne from '../images/featuredRecipes/recipe1.jpg'
 import RecipeTwo from '../images/featuredRecipes/recipe2.jpg'
 import RecipeThree from '../images/featuredRecipes/recipe3.jpg'
+import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
+
+
 
 
 export default class extends React.Component {
     
-    render() {
+    constructor(props) {
+        super(props);
+    }
 
-        console.log(this.props.english)
-        let categories = ["Enchiladas", "Pastel de Chocolate", "Chorizo"]
+    onSubmit = () => {
+        const history = useHistory;
+        var handleClick = () => {
+            history.push('/recipe/Enchiladas%20Verdes')
+          };
+    }
+
+    render() {
         
         if (this.props.english) {
             return (
-                <div class="card-deck">
-                    <div class="card">
-                        <img class="card-img-top" src='../images/featuredRecipes/recipe1.jpg' alt="Card image cap"/>
-                        <div class="card-block">
-                        <h4 class="card-title">Green Enchiladas</h4>
-                        <p class="card-text">Try making these motherfuckers on your day off</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <Button variant="primary">See Recipe</Button>
+                <div>
+                    <p class='headerText'>Featured Recipes</p>
+                    <div class="card-deck">
+                        <div class="card">
+                            <img class="card-img-top" src={RecipeOne} alt="Enchiladas"/>
+                            <div class="card-block">
+                            <h4 class="card-title">Green Enchiladas</h4>
+                            <p class="card-text">Classic Swiss Enchiladas with melted mozzarella cheese, sour cream, red onion, and homestyle salsa verde</p>
+                            <p class="card-text"><small class="text-muted">Ready in less than one hour</small></p>
+                            <Button variant="primary">See Recipe</Button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="../images/featuredRecipes/recipe2.jpg" />
-                        <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <div class="card">
+                            <img class="card-img-top" src={RecipeTwo} alt="Tamales"/>
+                            <div class="card-block">
+                            <h4 class="card-title">Green Tamales</h4>
+                            <p class="card-text">Homestyle green Mole tamales. Cobine with refried beans and a homestyle salsa verde. Find some friends and plan on spending all day cooking this classic Mexican dish.</p>
+                            <p class="card-text"><small class="text-muted">4 hours of work but very much worth the effort</small></p>
+                            <Button variant="primary">See Recipe</Button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="../images/featuredRecipes/recipe3.jpg" alt="Card image cap"/>
-                        <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <div class="card">
+                            <img class="card-img-top" src={RecipeThree} alt="ChocoFlan"/>
+                            <div class="card-block">
+                            <h4 class="card-title">ChocoFlan</h4>
+                            <p class="card-text">Two story ChocoFlan. A moist chocolate cake with flan on top. Glazed with caramel and optional nuts</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <Button variant="primary">See Recipe</Button>
+                            </div>
                         </div>
                     </div>
                 </div>
             )
         } else {
-            return(
-                <div class="card-deck">
-                    <div class="card">
-                        <img class="card-img-top" src='../images/featuredRecipes/recipe1.jpg' alt="Card image cap"/>
-                        <div class="card-block">
-                        <h4 class="card-title">Enchiladas Verdes</h4>
-                        <p class="card-text">Try making these motherfuckers on your day off</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <Button variant="primary">See Recipe</Button>
+            return (
+                <div>
+                    <p class='headerText'>Recetas Destacadas</p>
+                    <div class="card-deck">
+                        <div class="card">
+                            <img class='card-img-top' src={RecipeOne} alt="Card image cap"/>
+                            <div class="card-block">
+                            <h4 class="card-title">Enchiladas Verdes</h4>
+                            <p class="card-text">Enchiladas Suizas con queso gratinado, crema, cebolla morada, y salsa verde casera</p>
+                            <p class="card-text"><small class="text-muted">Listas en menos de una hora</small></p>
+                            <Button variant="primary">Adelante</Button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="../images/featuredRecipes/recipe2.jpg" />
-                        <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <div class="card">
+                            <img class="card-img-top" src={RecipeTwo} />
+                            <div class="card-block">
+                            <h4 class="card-title">Tamales Verdes</h4>
+                            <p class="card-text">Tamales de Mole verde combina perfecto con frijoles refritos y una salsa verde casera. Encuentrate unos amigos y planea en pasar todo el dia cocinando</p>
+                            <p class="card-text"><small class="text-muted">4 Horas de trabajo pero valen mucho la pena</small></p>
+                            <Button variant="primary">Adelante</Button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="../images/featuredRecipes/recipe3.jpg" alt="Card image cap"/>
-                        <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <div class="card">
+                            <img class="card-img-top" src={RecipeThree} alt="Card image cap"/>
+                            <div class="card-block">
+                            <h4 class="card-title">Flan</h4>
+                            <p class="card-text">Un Chocoflan de dos pisos. Un pastel de chocolate con flan en sima glazeado con leche quemada y nueces opcional</p>
+                            <p class="card-text"><small class="text-muted">Hay un leyenda que cuenta que existe gente que le gusta mucho el Flan...</small></p>
+                            <Button variant="primary">Adelante</Button>
+                            </div>
                         </div>
                     </div>
                 </div>
