@@ -40,12 +40,12 @@ export default class extends React.Component {
     console.log(this.state) 
     if(this.props.english){
       return (
-        <div>
+        <div class='outerMost'>
           <div>
-            <p class="headerClass"> RECIPES BY</p>
             <p class="headerClass">
               {this.props.location.state.categoryInContext.Type_English}
             </p>
+            <p class='subtitle'>Click on a recipe to view</p>
           </div>
 
           <RecipeMosaic
@@ -56,12 +56,12 @@ export default class extends React.Component {
       );
     }else {
       return (
-        <div>
+        <div class='outerMost'>
           <div>
-            <p class="headerClass"> RECETAS POR</p>
             <p class="headerClass">
               {this.props.location.state.categoryInContext.Type}
             </p>
+            <p class='subtitle'>Haz click para ver la receta</p>
           </div>
 
           <RecipeMosaic

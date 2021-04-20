@@ -30,28 +30,29 @@ export default class extends React.Component {
               <h3 class="subHeader"> Cook Time: {this.props.location.state.recipe.Cook_Time} min </h3>
             </p>
           </div>
+        <div class='outerMost'>
+            <div>
+              <p class="headerText"> Ingredients: </p>
+              <br></br>
+              <div
+                class="bodyFormat"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.location.state.recipe.Ingredients_English,
+                }}
+              />
+              <br></br>
+            </div>
 
-          <div>
-            <p class="headerText"> Ingredients: </p>
-            <br></br>
-            <div
-              class="bodyFormat"
-              dangerouslySetInnerHTML={{
-                __html: this.props.location.state.recipe.Ingredients_English,
-              }}
-            />
-            <br></br>
-          </div>
-
-          <div>
-            <p class="headerText"> Directions: </p>
-            <br></br>
-            <div
-              class="bodyFormat"
-              dangerouslySetInnerHTML={{
-                __html: this.props.location.state.recipe.Directions_English,
-              }}
-            />
+            <div>
+              <p class="headerText"> Directions: </p>
+              <br></br>
+              <div
+                class="bodyFormat"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.location.state.recipe.Directions_English,
+                }}
+              />
+            </div>
           </div>
         </div>
       );
@@ -65,7 +66,7 @@ export default class extends React.Component {
               <h3 class="subHeader"> Tiempo de Concinar: {this.props.location.state.recipe.Cook_Time} min </h3>
             </p>
           </div>
-
+        <div class='outerMost'>
           <div>
             <p class="headerText"> Ingredientes: </p>
             <br></br>
@@ -88,6 +89,7 @@ export default class extends React.Component {
               }}
             />
           </div>
+        </div>
         </div>
       );
 

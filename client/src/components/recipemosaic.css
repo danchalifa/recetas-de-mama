@@ -1,5 +1,17 @@
+.outerMost{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
 .headerClass{
-    font-size: 40px;
+    font-size: 50px;
     text-align: center;
     font-weight: bold;
+}
+
+.subtitle{
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    color: grey;
 }
