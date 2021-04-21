@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 //import logo from '../images/tablecloth.jpeg'; // Tell webpack this JS file uses this image
 import Banner from "./banner.js"
 import CategoryMosaic from './categorymosaic.js'
-import RecipeMosaic from './recipemosaic.js'
 import FeaturedRecipes from './featuredrecipies.js'
 import './home.css'
 
@@ -10,7 +9,7 @@ export default class extends React.Component {
 
     render() {
         return (
-          <div id={"Home"} class='mainPadding'>
+          <div id={"Home"} className='mainPadding'>
             <Banner />
 
             <CategoryMosaic {...this.props} />

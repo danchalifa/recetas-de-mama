@@ -1,13 +1,5 @@
-import React, { Component, useContext } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Button,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-} from "react-bootstrap";
 import "./recipe.css";
 
 export default class extends React.Component {
@@ -18,24 +10,23 @@ export default class extends React.Component {
   }
 
   render() {
-      console.log(this.props.location.state)
-      console.log(this.props.english);
+
     if (this.props.english){
       return (
-        <div class='mainPadding'>
-          <div class="image">
-            <p class="recipeTitle">
+        <div className='mainPadding'>
+          <div className="image">
+            <div className="recipeTitle">
               {this.props.location.state.recipe.Name_English}
-              <h3 class="subHeader"> Prep Time: {this.props.location.state.recipe.Prep_Time} min </h3>
-              <h3 class="subHeader"> Cook Time: {this.props.location.state.recipe.Cook_Time} min </h3>
-            </p>
+              <p className="subHeader" > Prep Time: {this.props.location.state.recipe.Prep_Time} min </p>
+              <p className="subHeader" > Cook Time: {this.props.location.state.recipe.Cook_Time} min </p>
+            </div>
           </div>
-        <div class='outerMost'>
+        <div className='outerMost'>
             <div>
-              <p class="headerText"> Ingredients: </p>
+              <p className="headerText"> Ingredients: </p>
               <br></br>
               <div
-                class="bodyFormat"
+                className="bodyFormat"
                 dangerouslySetInnerHTML={{
                   __html: this.props.location.state.recipe.Ingredients_English,
                 }}
@@ -44,10 +35,10 @@ export default class extends React.Component {
             </div>
 
             <div>
-              <p class="headerText"> Directions: </p>
+              <p className="headerText"> Directions: </p>
               <br></br>
               <div
-                class="bodyFormat"
+                className="bodyFormat"
                 dangerouslySetInnerHTML={{
                   __html: this.props.location.state.recipe.Directions_English,
                 }}
@@ -58,20 +49,20 @@ export default class extends React.Component {
       );
     } else {
       return (
-        <div class='mainPadding'>
-          <div class="image">
-            <p class="recipeTitle">
+        <div className='mainPadding'>
+          <div className="image">
+            <div className="recipeTitle">
               {this.props.location.state.recipe.Name}
-              <h3 class="subHeader"> Tiempo de Preparacion: {this.props.location.state.recipe.Prep_Time} min </h3>
-              <h3 class="subHeader"> Tiempo de Concinar: {this.props.location.state.recipe.Cook_Time} min </h3>
-            </p>
+              <p className="subHeader"> Tiempo de Preparacion: {this.props.location.state.recipe.Prep_Time} min </p>
+              <p className="subHeader"> Tiempo de Concinar: {this.props.location.state.recipe.Cook_Time} min </p>
+            </div>
           </div>
-        <div class='outerMost'>
+        <div className='outerMost'>
           <div>
-            <p class="headerText"> Ingredientes: </p>
+            <p className="headerText"> Ingredientes: </p>
             <br></br>
             <div
-              class="bodyFormat"
+              className="bodyFormat"
               dangerouslySetInnerHTML={{
                 __html: this.props.location.state.recipe.Ingredientes,
               }}
@@ -80,10 +71,10 @@ export default class extends React.Component {
           </div>
 
           <div>
-            <p class="headerText"> Direcciones: </p>
+            <p className="headerText"> Direcciones: </p>
             <br></br>
             <div
-              class="bodyFormat"
+              className="bodyFormat"
               dangerouslySetInnerHTML={{
                 __html: this.props.location.state.recipe.Direcciones,
               }}

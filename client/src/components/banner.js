@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import Banner from '../images/BannerV2.png'; // Tell webpack this JS file uses this image
-import center from './banner.css'
+import React from 'react';
+import Banner from '../images/BannerV2.png'; // Tell webpack this JS file uses this imag
+import './banner.css'
+
 
 export default class extends React.Component {
 
@@ -8,7 +9,7 @@ export default class extends React.Component {
         return (
             
         <div>
-            <img src={Banner} alt="My_Logo" className="center"/>
+            <img src={Banner} alt="Banner Mast Head" className="center"/>
  
         </div>
             

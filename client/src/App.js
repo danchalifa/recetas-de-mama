@@ -1,13 +1,11 @@
-import React, { Component, useContext } from "react";
-import logo from "./logo.svg";
+import React, { Component} from "react";
 import "./App.css";
 import Home from "./components/home.js"
 import About from "./components/about.js"
 import Navbar from "./components/navbar.js"
 import RecipeMosaic from "./components/recipemosaic.js"
 import Recipe from "./components/recipe"
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import AppContext from './context/AppContext.js'
+import { Route, Switch } from 'react-router-dom';
 import Footer from './components/footer.js'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -25,7 +23,7 @@ class App extends Component {
     const { cookies } = props;
     this.state = { 
       apiResponse: "", 
-      english: cookies.get('english') == 'true' || false };
+      english: cookies.get('english') === 'true' || false };
   }
 
   callAPI() {
@@ -37,7 +35,6 @@ class App extends Component {
 
   componentDidMount() {
     this.callAPI();
-    const user = this.context;
   }
 
   toggleHandler = (checked) => {
@@ -53,7 +50,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.english)
     return (
       <main>
         <Navbar

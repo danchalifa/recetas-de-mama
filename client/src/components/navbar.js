@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap'
+import { Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap'
 import ToggleSwitch from './toggleswitch.js'
 import './categorymosaic.js'
 import './navbar.css'
@@ -16,21 +16,18 @@ export default class extends React.Component {
                 <Nav.Link
                   className="nav-links"
                   href="/"
-                  activeClassName="activeOne"
                 >
                   Home
                 </Nav.Link>
                 <Nav.Link
                   className="nav-links"
                   href="/#categories"
-                  activeClassName="activeTwo"
                 >
                   Categories
                 </Nav.Link>
                 <Nav.Link
                   className="nav-links"
                   href="/about"
-                  activeClassName="activeThree"
                 >
                   About
                 </Nav.Link>
@@ -43,10 +40,10 @@ export default class extends React.Component {
                   toggleHandler={this.props.toggleHandler}
                   english={this.props.english}
                 />
-                <text style={{ fontWeight: "bold", fontSize: "14px" }}>
+                <div style={{ fontWeight: "bold", fontSize: "14px" }}>
                   English
-                </text>
-                <text style={{ color: "white" }}>...</text>
+                </div>
+                <div style={{ color: "white" }}>...</div>
               </Form>
 
               <div hidden>
@@ -56,7 +53,7 @@ export default class extends React.Component {
                     placeholder="Buscar..."
                     className="mr-sm-2"
                   />
-                  <Button class="nav-links" variant="outline-primary">
+                  <Button className="nav-links" variant="outline-primary">
                     Search
                   </Button>
                 </Form>

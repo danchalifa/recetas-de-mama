@@ -3,8 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-import FadeIn from "react-fade-in";
-import { useHistory, withRouter, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import logo1 from "../images/color-palette/1.jpg";
 import logo2 from "../images/color-palette/2.jpg";
 import logo3 from "../images/color-palette/3.jpg";
@@ -42,13 +41,13 @@ export default class extends React.Component {
   render() {
     if (this.props.english) {
       return (
-        <div class="outerMost">
+        <div className="outerMost">
           <div>
-            <div class="imageClassBlue">
-              <p class="headerClass">
+            <div className="imageClassBlue">
+              <p className="headerClass">
                 {this.props.location.state.categoryInContext.Type_English}
               </p>
-              <p class="subtitle">Click on a recipe to view</p>
+              <p className="subtitle">Click on a recipe to view</p>
             </div>
           </div>
 
@@ -62,13 +61,13 @@ export default class extends React.Component {
     } else {
       return (
 
-        <div class="outerMost" >
+        <div className="outerMost" >
           <div>
-            <div class="imageClassBlue">
-              <p class="headerClass">
+            <div className="imageClassBlue">
+              <p className="headerClass">
                 {this.props.location.state.categoryInContext.Type}
               </p>
-              <p class="subtitle">Haz click para ver la receta</p>
+              <p className="subtitle">Haz click para ver la receta</p>
             </div>
           </div>
           <RecipeMosaic
@@ -114,9 +113,8 @@ const RecipeMosaic = (props) => {
   };
 
   let randNumOneThroughThree = weightedRandomNumber();
-  console.log(randNumOneThroughThree);
   for (let [index, val] of props.recipes.entries()) {
-    if (index == props.recipes.length - 1) {
+    if (index === props.recipes.length - 1) {
       val["cols"] = 5 - currentRowSize;
     } else {
       randNumOneThroughThree = weightedRandomNumber();
@@ -128,19 +126,17 @@ const RecipeMosaic = (props) => {
         val["cols"] = randNumOneThroughThree;
         currentRowSize += randNumOneThroughThree;
 
-        if (currentRowSize == 5) {
+        if (currentRowSize === 5) {
           currentRowSize = 0;
         }
       }
     }
   }
 
-  const totalRecipes = props.recipes.length;
 
   var handleClick = (recipe) => {
     var recipeParsed = recipe.Name.replace(/[^\w\s]/gi, "");
     var route = "/recipe/" + recipeParsed;
-    console.log(recipe);
     history.push({
       pathname: route,
       state: { recipe: recipe },
@@ -151,15 +147,17 @@ const RecipeMosaic = (props) => {
     var logoNumber = Math.floor(Math.random() * 5) + 1;
     switch (logoNumber) {
       case 1:
-        return <img src={logo1} style={{ pointerEvents: "none" }} />;
+        return <img src={logo1} style={{ pointerEvents: "none" }} alt="color1" />;
       case 2:
-        return <img src={logo2} style={{ pointerEvents: "none" }} />;
+        return <img src={logo2} style={{ pointerEvents: "none" }} alt="color2" />;
       case 3:
-        return <img src={logo3} style={{ pointerEvents: "none" }} />;
+        return <img src={logo3} style={{ pointerEvents: "none" }} alt="color2"/>;
       case 4:
-        return <img src={logo4} style={{ pointerEvents: "none" }} />;
+        return <img src={logo4} style={{ pointerEvents: "none" }} alt="color3" />;
       case 5:
-        return <img src={logo5} style={{ pointerEvents: "none" }} />;
+        return <img src={logo5} style={{ pointerEvents: "none" }} alt="color4"/>;
+      default: 
+        return <img src={logo1} style={{ pointerEvents: "none" }} alt="color1" />;
     }
   };
 

@@ -29,10 +29,6 @@
 
 .title{
     text-align: center;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
     font-weight: bold;
     font-size: 60px;
     width: 100%;
@@ -49,11 +45,6 @@
 
 .subTitle {
     text-align: center;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    font-weight: bold;
     color: white;
     font-weight: bold;
     font-size: 30px;;

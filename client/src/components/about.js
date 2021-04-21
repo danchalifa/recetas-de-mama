@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Styles from './about.css'
+import React from 'react';
 import BackCover from '../images/back_cover.png'
 import BackCoverEnglish from '../images/back_cover_english.png'
+import './about.css'
 
 export default class extends React.Component {
 
@@ -14,20 +14,21 @@ export default class extends React.Component {
         
     if (this.props.english){
         return (    
-            <div id={'About'} class='outerDiv'>
+            <div id={'About'} className='outerDiv'>
 
-                <div class="imageClass">
+                <div className="imageClass">
 
-                    <p class="title">
+                    <div className="title">
                         MOM'S RECIPES:
-                        <h1 class="subTitle"> A HISTORY THROUGH FOOD </h1>
-                    </p>
+                        <div className="subTitle"> A HISTORY THROUGH FOOD </div>
+                    </div>
+
 
                 </div>
 
-                <div class='mainDiv'>
+                <div className='mainDiv'>
                     <div>
-                        <p class='headBody'>
+                        <p className='headBody'>
                             <br></br>
                             This website is dedicated to the two generations of family recipes that have been passed down through our family.
                             Beginning as word of mouth tradition, progressed into a book, and now a website, the recipes curated on this site are free for all to enjoy.
@@ -41,9 +42,9 @@ export default class extends React.Component {
                             Like You've Always Said: 'Collections Make Kitchens, Not Catarina'
                         </p>
                         
-                        <img src={BackCoverEnglish} className='bookImage'/>
+                        <img src={BackCoverEnglish} className='bookImage' alt="Book English"/>
 
-                        <p class='body'>
+                        <p className='body'>
                             Thanks mom for sharing your valuable recipes and especially for teaching me to cook delicious food just like you.
                             In this book, you will find most of your recipes and some from my collection.
                             <br></br><br></br>
@@ -65,20 +66,20 @@ export default class extends React.Component {
         )
     } else {
         return(
-            <div id={'About'} class='outerDiv'>
+            <div id={'About'} className='outerDiv'>
 
-            <div class="imageClass">
+            <div className="imageClass">
 
-                <p class="title">
+                <div className="title">
                     LAS RECETAS DE MAMA:
-                    <h1 class="subTitle"> LA HISTORIA </h1>
-                </p>
+                    <div className="subTitle"> LA HISTORIA </div>
+                </div>
 
             </div>
 
-            <div class='mainDiv'>
+            <div className='mainDiv'>
                 <div>
-                    <p class='headBody'>
+                    <p className='headBody'>
                         <br></br>
                         Este sitio esta dedicado a las dos generaciones de recetas de nuestra familia que an pasado por los años.
                         Lo que empezo como tradiciones, se econtro en un libro, y finalmente en un formato de web. Las recetas almacenadas en este sitio son gratis para que todos disfruten.
@@ -92,9 +93,9 @@ export default class extends React.Component {
                         Como Dices Tu: 'Recaudo Hace Cocina, No Catarina'
                     </p>
 
-                    <img src={BackCover} className='bookImage'/>
+                    <img src={BackCover} className='bookImage' alt="Book "/>
 
-                    <p class='body'>
+                    <p className='body'>
                         Gracias mami por compartir tus valiosas recetas y sobre todo por eneseñarme a cocinar tan rico como tu.
                         En este libro encontrara muchas de ellas y algunas de mi colleccion.
                         <br></br><br></br>

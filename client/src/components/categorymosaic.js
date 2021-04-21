@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-import Category from './category.js' 
+import React from 'react';
 import './categorymosaic.css'
-
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { useHistory, withRouter, Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 export default class extends React.Component {
@@ -29,10 +25,12 @@ export default class extends React.Component {
           <div id="categories" style={{paddingLeft: '50px', paddingRight: '50px', paddingTop:'50px'}}>
             <div style={{ marginTop: "100px" }}></div>
             {this.props.english ? (
-              <h1 style={{ textAlign: "center", fontWeight: 'bold'}}>Categories</h1>
+              <h1 style={{ textAlign: "center", fontWeight: 'bold', fontSize: '50px'}}>Categories</h1>
             ) : (
-              <h1 style={{ textAlign: "center", fontWeight: 'bold'}}>Categorias</h1>
+              <h1 style={{ textAlign: "center", fontWeight: 'bold', fontSize:'50px'}}>Categorias</h1>
             )}
+
+            <div><br></br></div>
 
             <Mosaic
               categories={this.state.categories}
@@ -83,8 +81,8 @@ const Mosaic = (props)=> {
         <div className={classes.root}>
           <Grid container spacing={4}>
             {props.categories.map((category,index) => (
-              <Grid item xs={4} onClick={() => handleClick(category)}>
-                {index % 2 == 0 || index%3==2 ? (
+              <Grid key={index} item xs={4} onClick={() => handleClick(category)}>
+                {index % 2 === 0 || index%3===2 ? (
                   <Paper className={classes.paper}>
                     {category.Type_English}
                   </Paper>
@@ -103,8 +101,8 @@ const Mosaic = (props)=> {
         <div className={classes.root}>
           <Grid container  spacing={3}>
             {props.categories.map((category, index) => (
-              <Grid item xs={4} onClick={() => handleClick(category)}>
-                {index%3==0 || index%3==2 ? (
+              <Grid key={index} item xs={4} onClick={() => handleClick(category)}>
+                {index%3===0 || index%3===2 ? (
                   <Paper className={classes.paper}>{category.Type}</Paper>
                 ) : (
                   <Paper className={classes.paper2}>{category.Type}</Paper>
