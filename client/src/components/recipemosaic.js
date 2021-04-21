@@ -5,20 +5,20 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import FadeIn from "react-fade-in";
 import { useHistory, withRouter, Redirect } from "react-router-dom";
-import logo1 from '../images/color-palette/1.jpg'
+import logo1 from "../images/color-palette/1.jpg";
 import logo2 from "../images/color-palette/2.jpg";
 import logo3 from "../images/color-palette/3.jpg";
 import logo4 from "../images/color-palette/4.jpg";
 import logo5 from "../images/color-palette/5.jpg";
-import './recipemosaic.css'
+import "./recipemosaic.css";
 
 export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = { recipes: [] };
     this.category = this.props.location.pathname.replace("/category/", "");
-    this.categorySelected="";
-    console.log(this.props.location)
+    this.categorySelected = "";
+    console.log(this.props.location);
   }
 
   componentDidMount() {
@@ -37,36 +37,35 @@ export default class extends React.Component {
   }
 
   render() {
-    console.log(this.state) 
-    if(this.props.english){
+    console.log(this.state);
+    if (this.props.english) {
       return (
-        <div class='outerMost'>
+        <div class="outerMost">
           <div>
-          <div class="imageClassBlue">
-            <p class="headerClass">
-              {this.props.location.state.categoryInContext.Type_English}
-            </p>
-            <p class='subtitle'>Click on a recipe to view</p>
-          </div>
+            <div class="imageClassBlue">
+              <p class="headerClass">
+                {this.props.location.state.categoryInContext.Type_English}
+              </p>
+              <p class="subtitle">Click on a recipe to view</p>
+            </div>
           </div>
 
           <RecipeMosaic
             recipes={this.state.recipes}
             english={this.props.english}
           />
-
         </div>
       );
-    }else {
+    } else {
       return (
-        <div class='outerMost'>
+        <div class="outerMost">
           <div>
-          <div class="imageClassBlue">
-            <p class="headerClass">
-              {this.props.location.state.categoryInContext.Type}
-            </p>
-            <p class='subtitle'>Haz click para ver la receta</p>
-          </div>
+            <div class="imageClassBlue">
+              <p class="headerClass">
+                {this.props.location.state.categoryInContext.Type}
+              </p>
+              <p class="subtitle">Haz click para ver la receta</p>
+            </div>
           </div>
           <RecipeMosaic
             recipes={this.state.recipes}
@@ -75,7 +74,6 @@ export default class extends React.Component {
         </div>
       );
     }
-    
   }
 }
 
@@ -85,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
-    height:"100%",
+    height: "100%",
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
@@ -94,14 +92,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 const RecipeMosaic = (props) => {
   const classes = useStyles();
   const history = useHistory();
   // const pattern = [1, 3, 1, 1, 2, 1, 1, 2, 1, 2];
   // val["cols"] = pattern[index] % (pattern.length - 1);
   // let randNumOneThroughFour = Math.floor(Math.random() * 3) + 1;
-  
+
   // Generate random mosaic
   let currentRowSize = 0;
   var weightedRandomNumber = () => {
@@ -161,9 +158,12 @@ const RecipeMosaic = (props) => {
     }
   };
 
-  if(props.english){
+  if (props.english) {
     return (
-      <div className={classes.root} style={{backgroundColor: 'rgb(190,190,190)', padding:'80px'}}>
+      <div
+        className={classes.root}
+        style={{ backgroundColor: "rgb(190,190,190)", padding: "80px" }}
+      >
         <GridList cellHeight={160} className={classes.gridList} cols={5}>
           {props.recipes.map((recipe) => (
             <GridListTile
@@ -178,9 +178,12 @@ const RecipeMosaic = (props) => {
         </GridList>
       </div>
     );
-  }else{
+  } else {
     return (
-      <div className={classes.root} style={{backgroundColor: 'rgb(190,190,190)', padding:'80px'}}>
+      <div
+        className={classes.root}
+        style={{ backgroundColor: "rgb(190,190,190)", padding: "80px" }}
+      >
         <GridList cellHeight={160} className={classes.gridList} cols={5}>
           {props.recipes.map((recipe) => (
             <GridListTile
@@ -193,11 +196,7 @@ const RecipeMosaic = (props) => {
             </GridListTile>
           ))}
         </GridList>
-    </div>
+      </div>
     );
   }
-
-
-  
 };
-
