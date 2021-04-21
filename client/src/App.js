@@ -26,17 +26,6 @@ class App extends Component {
       english: cookies.get('english') === 'true' || false };
   }
 
-  callAPI() {
-    fetch("http://localhost:9000/api/recipes")
-      .then((res) => res.text())
-      .then((res) => this.setState({ apiResponse: res }))
-      .catch((err) => err);
-  }
-
-  componentDidMount() {
-    this.callAPI();
-  }
-
   toggleHandler = (checked) => {
     const { cookies } = this.props;
 

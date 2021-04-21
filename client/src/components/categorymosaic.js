@@ -14,7 +14,10 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:9000/api/types")
+         const hostname = window.location.hostname;
+         const uri = (hostname == "localhost" ? "http://" : "https://") + hostname + ":9000/api/types";
+
+        fetch(uri)
             .then(res => res.json())
             .then(res => this.setState({ categories: this.state.categories.concat(res)}))
             .catch(err => err);

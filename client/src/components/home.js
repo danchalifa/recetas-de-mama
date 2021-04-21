@@ -11,7 +11,6 @@ export default class extends React.Component {
         return (
           <div id={"Home"} className='mainPadding'>
             <Banner />
-
             <CategoryMosaic {...this.props} />
             <FeaturedRecipes {...this.props} />
           </div>
