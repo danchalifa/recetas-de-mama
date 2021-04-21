@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Styles from './about.css'
 import BackCover from '../images/back_cover.png'
+import BackCoverEnglish from '../images/back_cover_english.png'
 
 export default class extends React.Component {
 
@@ -29,7 +30,7 @@ export default class extends React.Component {
                         <p class='headBody'>
                             <br></br>
                             This website is dedicated to the two generations of family recipes that have been passed down through our family.
-                            What started out as word of mouth tradition, progressed into a book, and now finally a modern web layout, the recipes curated on this website are free for all to enjoy.
+                            What started out as word of mouth tradition, progressed into a book, and now a website, the recipes curated on this site are free for all to enjoy.
                             <br></br><br></br>
                         </p>
                     </div>
@@ -40,18 +41,18 @@ export default class extends React.Component {
                             Como Dices Tu: 'Recaudo Hace Cocina, No Catarina'
                         </p>
                         
-                        <img src={BackCover} className='bookImage'/>
+                        <img src={BackCoverEnglish} className='bookImage'/>
 
                         <p class='body'>
-                            Gracias mami por compartir tus valiosas recetas y sobre todo por enesenarme a cocinar tan rico como tu.
-                            En este libro encontrara muchas de ellas y algunas de mi colleccion
+                            Thanks mom for sharing your valuable recipes and especially for teaching me to cook delicious food just like you.
+                            In this book, you will find most of your recipes and some from my collection.
                             <br></br><br></br>
-                            Cuando preparo estas comidas, el aroma me transporta a ti y espero que mis hijos sientan lo mismo cada vez que ellos preparen alguna de estas rectas.
+                            When I rpepare these foods, the aroma transports me to you and I hope that my children feel the same way every time they prepare one of these recipes.
                             <br></br><br></br>
-                            Tambien gracies a mi maravillos y Ch.P.T marido, mi Pancho, por su dedicacion y paciencie en la preparacion de esto libro. A mi preciosas Patty por probar cada una de 
-                            estas recetas y dar su opinion, y a mi adorado Danny por el diseno de la portada.
+                            Special thank you to my marvelous husband, my Pancho, for his dedication and patience in the preparation of this book. To my precious Patty for trying every one of 
+                            these recipes and for giving her opinion. And my adored Danny for designing the book layout.
                             <br></br><br></br>
-                            <b>Tu hija,
+                            <b>Your daughter,
                             <br></br><br></br>
                             Yoli Ponce de Leon Isunza</b>
 
@@ -80,7 +81,7 @@ export default class extends React.Component {
                     <p class='headBody'>
                         <br></br>
                         Este sitio esta dedicado a las dos generaciones de recetas de nuestra familia que an pasado por los años.
-                        Lo que empezo como tradiciones se econtro en un libro, y finalmente en un formato de web. Las recetas almacenadas en este sitio son gratis para que todos disfruten.
+                        Lo que empezo como tradiciones, se econtro en un libro, y finalmente en un formato de web. Las recetas almacenadas en este sitio son gratis para que todos disfruten.
                         <br></br><br></br>
                     </p>
                 </div>
@@ -94,12 +95,12 @@ export default class extends React.Component {
                     <img src={BackCover} className='bookImage'/>
 
                     <p class='body'>
-                        Gracias mami por compartir tus valiosas recetas y sobre todo por enesenarme a cocinar tan rico como tu.
-                        En este libro encontrara muchas de ellas y algunas de mi colleccion
+                        Gracias mami por compartir tus valiosas recetas y sobre todo por eneseñarme a cocinar tan rico como tu.
+                        En este libro encontrara muchas de ellas y algunas de mi colleccion.
                         <br></br><br></br>
                         Cuando preparo estas comidas, el aroma me transporta a ti y espero que mis hijos sientan lo mismo cada vez que ellos preparen alguna de estas rectas.
                         <br></br><br></br>
-                        Tambien gracies a mi maravillos y Ch.P.T marido, mi Pancho, por su dedicacion y paciencie en la preparacion de esto libro. A mi preciosa Patty por probar cada una de 
+                        Tambien gracies a mi maravilloso y Ch.P.T marido, mi Pancho, por su dedicacion y paciencia en la preparacion de esto libro. A mi preciosa Patty por probar cada una de 
                         estas recetas y dar su opinion, y a mi adorado Danny por el diseno de la portada.
                         <br></br><br></br>
                         <b>Tu hija,
