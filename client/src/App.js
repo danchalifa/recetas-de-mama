@@ -11,12 +11,21 @@ import AppContext from './context/AppContext.js'
 import Footer from './components/footer.js'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { instanceOf } from "prop-types";
+import { withCookies, Cookies } from "react-cookie";
+
 
 class App extends Component {
+  static propTypes = {
+    cookies: instanceOf(Cookies).isRequired,
+  };
 
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" , english:false};
+    const { cookies } = props;
+    this.state = { 
+      apiResponse: "", 
+      english: cookies.get('english') == 'true' || false };
   }
 
   callAPI() {
@@ -32,18 +41,25 @@ class App extends Component {
   }
 
   toggleHandler = (checked) => {
-    if(checked){
-      this.setState({ english:true });
+    const { cookies } = this.props;
+
+    if (checked) {
+      cookies.set("english", true, { path: "/" });
+      this.setState({ english: true });
     } else {
-      this.setState({ english:false });
+      cookies.set("english", false, { path: "/" });
+      this.setState({ english: false });
     }
   };
 
   render() {
-
+    console.log(this.state.english)
     return (
       <main>
-        <Navbar toggleHandler={this.toggleHandler} />
+        <Navbar
+          toggleHandler={this.toggleHandler}
+          english={this.state.english}
+        />
         <Switch>
           <Route
             path="/"
@@ -75,4 +91,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withCookies(App);

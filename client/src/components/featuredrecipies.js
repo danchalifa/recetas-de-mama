@@ -34,6 +34,10 @@ export default class extends React.Component {
 const FeaturedRecipes = (props)=> {
     const history = useHistory();
 
+    history.listen((location, action) => {
+      window.scrollTo(0, 0);
+    });
+
     var onSubmit = () => {
         history.push({
             pathname: '/recipe/Enchiladas%20Verdes',
