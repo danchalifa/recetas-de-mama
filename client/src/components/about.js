@@ -34,13 +34,13 @@ export default class extends React.Component {
                         </p>
                     </div>
 
-                    <img src={BackCover} className='bookImage'/>
-
                     <div>
 
                         <p className='sectionHeader'>
                             Como Dices Tu: 'Recaudo Hace Cocina, No Catarina'
                         </p>
+                        
+                        <img src={BackCover} className='bookImage'/>
 
                         <p class='body'>
                             Gracias mami por compartir tus valiosas recetas y sobre todo por enesenarme a cocinar tan rico como tu.
@@ -85,13 +85,13 @@ export default class extends React.Component {
                     </p>
                 </div>
 
-                <img src={BackCover} className='bookImage'/>
-
                 <div>
 
                     <p className='sectionHeader'>
                         Como Dices Tu: 'Recaudo Hace Cocina, No Catarina'
                     </p>
+
+                    <img src={BackCover} className='bookImage'/>
 
                     <p class='body'>
                         Gracias mami por compartir tus valiosas recetas y sobre todo por enesenarme a cocinar tan rico como tu.

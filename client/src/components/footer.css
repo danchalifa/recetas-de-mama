@@ -5,7 +5,10 @@
     background-color: rgb(60, 60, 60);
     background: rgb(60, 60, 60);
     height: 50px;
+    width: 100%;
     line-height: 50px;
+    bottom: 0;
+    left: 0;
 }
 
 .footerText{

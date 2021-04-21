@@ -4,12 +4,13 @@ import Banner from "./banner.js"
 import CategoryMosaic from './categorymosaic.js'
 import RecipeMosaic from './recipemosaic.js'
 import FeaturedRecipes from './featuredrecipies.js'
+import './home.css'
 
 export default class extends React.Component {
 
     render() {
         return (
-          <div id={"Home"}>
+          <div id={"Home"} class='mainPadding'>
             <Banner />
 
             <CategoryMosaic {...this.props} />

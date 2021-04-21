@@ -22,7 +22,7 @@ export default class extends React.Component {
       console.log(this.props.english);
     if (this.props.english){
       return (
-        <div>
+        <div class='mainPadding'>
           <div class="image">
             <p class="recipeTitle">
               {this.props.location.state.recipe.Name_English}
@@ -58,7 +58,7 @@ export default class extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div class='mainPadding'>
           <div class="image">
             <p class="recipeTitle">
               {this.props.location.state.recipe.Name}

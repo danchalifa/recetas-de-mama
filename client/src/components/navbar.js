@@ -8,7 +8,7 @@ export default class extends React.Component {
 
       render() {
         return (
-          <Navbar bg="light" expand="lg">
+          <Navbar bg="light" expand="lg" fixed="top">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
@@ -21,12 +21,14 @@ export default class extends React.Component {
 
               <Form inline>
                 <ToggleSwitch toggleHandler={this.props.toggleHandler}/>
+                <text style={{fontWeight: "bold", fontSize:'14px'}}>English</text>
+                <text style={{color: 'white'}}>...</text>
               </Form>
-
+              
               <Form inline>
                 <FormControl
                   type="text"
-                  placeholder="Search"
+                  placeholder="Buscar..."
                   className="mr-sm-2"
                 />
                 <Button class='nav-links' variant="outline-success">Search</Button>
