@@ -10,7 +10,7 @@ router.get("/recipes", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB_v4.db');
+    let db = new sqlite3.Database('../db/RecipesDB_v5.db');
 
     let sql = `SELECT * FROM RECIPES_FULL;`;
 
@@ -37,7 +37,7 @@ router.get("/types", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB_v4.db');
+    let db = new sqlite3.Database('../db/RecipesDB_v5.db');
 
     let sql = `select * from CATEGORY_DIM
 `;
@@ -65,7 +65,7 @@ router.get("/recipesForCategory/", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB_v4.db');
+    let db = new sqlite3.Database('../db/RecipesDB_v5.db');
 
     let sql =
       "SELECT Name, Name_English, ingredientes, direcciones, Ingredients_English, Directions_English, prep_time, cook_time, catid FROM RECIPES_FULL where catid =";

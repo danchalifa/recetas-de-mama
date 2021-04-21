@@ -14,7 +14,7 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:9000/testAPI/types")
+        fetch("http://localhost:9000/api/types")
             .then(res => res.json())
             .then(res => this.setState({ categories: this.state.categories.concat(res)}))
             .catch(err => err);

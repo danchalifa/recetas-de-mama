@@ -23,7 +23,7 @@ export default class extends React.Component {
 
 
   componentDidMount() {
-    var uri = "http://localhost:9000/testAPI/recipesForCategory?";
+    var uri = "http://localhost:9000/api/recipesForCategory?";
     uri += "category=" + this.category;
     fetch(uri)
       .then((res) => res.json())
