@@ -1,9 +1,32 @@
 .nav-links {
-    background-color:white;/*will change background-color of element */
-    /* color: green; will change color of text within the element */
-    }
+background-color:white;/*will change background-color of element */
+/* color: green; will change color of text within the element */
+font-weight: bold;
+}
     
-    .nav-links:hover {
-    background-color:purple; /*will change background-color of element on hover */
-    /* color: white; will change color of text within the element on hover */
-    }
+.nav-links:hover {
+background-color: #9280bf; /*will change background-color of element on hover */
+/* color: white; will change color of text within the element on hover */
+}
+
+.activeOne {
+    border-bottom: 3px solid #29b6f6;
+    transition: border-bottom 1s ease-in-out;
+    background-color: #9280bf
+}
+
+.activeTwo {
+    border-bottom: 3px solid #29b6f6;
+    transition: border-bottom 1s ease-in-out;
+    background-color: #9280bf
+}
+
+.activeThree {
+    border-bottom: 3px solid #29b6f6;
+    transition: border-bottom 1s ease-in-out;
+    background-color: #9280bf
+}
+
+.navbar__link:hover {
+    transform: translateY(-2px);
+}

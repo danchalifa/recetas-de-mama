@@ -38,7 +38,7 @@ export default class extends React.Component {
                     <div>
 
                         <p className='sectionHeader'>
-                            Como Dices Tu: 'Recaudo Hace Cocina, No Catarina'
+                            Like You've Always Said: 'Collections Make Kitchens, Not Catarina'
                         </p>
                         
                         <img src={BackCoverEnglish} className='bookImage'/>

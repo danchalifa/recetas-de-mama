@@ -42,28 +42,32 @@ export default class extends React.Component {
       return (
         <div class='outerMost'>
           <div>
+          <div class="imageClassBlue">
             <p class="headerClass">
               {this.props.location.state.categoryInContext.Type_English}
             </p>
             <p class='subtitle'>Click on a recipe to view</p>
+          </div>
           </div>
 
           <RecipeMosaic
             recipes={this.state.recipes}
             english={this.props.english}
           />
+
         </div>
       );
     }else {
       return (
         <div class='outerMost'>
           <div>
+          <div class="imageClassBlue">
             <p class="headerClass">
               {this.props.location.state.categoryInContext.Type}
             </p>
             <p class='subtitle'>Haz click para ver la receta</p>
           </div>
-
+          </div>
           <RecipeMosaic
             recipes={this.state.recipes}
             english={this.props.english}
@@ -159,7 +163,7 @@ const RecipeMosaic = (props) => {
 
   if(props.english){
     return (
-      <div className={classes.root}>
+      <div className={classes.root} style={{backgroundColor: 'rgb(190,190,190)', padding:'80px'}}>
         <GridList cellHeight={160} className={classes.gridList} cols={5}>
           {props.recipes.map((recipe) => (
             <GridListTile
@@ -176,7 +180,7 @@ const RecipeMosaic = (props) => {
     );
   }else{
     return (
-      <div className={classes.root}>
+      <div className={classes.root} style={{backgroundColor: 'rgb(190,190,190)', padding:'80px'}}>
         <GridList cellHeight={160} className={classes.gridList} cols={5}>
           {props.recipes.map((recipe) => (
             <GridListTile
@@ -189,7 +193,7 @@ const RecipeMosaic = (props) => {
             </GridListTile>
           ))}
         </GridList>
-      </div>
+    </div>
     );
   }
 

@@ -26,7 +26,7 @@ export default class extends React.Component {
 
     render() {
         return (
-          <div id="categories" style={{paddingLeft: '50px', paddingRight: '50px'}}>
+          <div id="categories" style={{paddingLeft: '50px', paddingRight: '50px', paddingTop:'50px'}}>
             <div style={{ marginTop: "100px" }}></div>
             {this.props.english ? (
               <h1 style={{ textAlign: "center", fontWeight: 'bold'}}>Categories</h1>
