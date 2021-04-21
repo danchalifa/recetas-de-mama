@@ -12,14 +12,16 @@ import logo4 from "../images/color-palette/4.jpg";
 import logo5 from "../images/color-palette/5.jpg";
 import "./recipemosaic.css";
 
+
 export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = { recipes: [] };
     this.category = this.props.location.pathname.replace("/category/", "");
     this.categorySelected = "";
-    console.log(this.props.location);
+
   }
+
 
   componentDidMount() {
     var uri = "http://localhost:9000/testAPI/recipesForCategory?";
@@ -36,8 +38,8 @@ export default class extends React.Component {
       .catch((err) => err);
   }
 
+
   render() {
-    console.log(this.state);
     if (this.props.english) {
       return (
         <div class="outerMost">
@@ -55,10 +57,12 @@ export default class extends React.Component {
             english={this.props.english}
           />
         </div>
+
       );
     } else {
       return (
-        <div class="outerMost">
+
+        <div class="outerMost" >
           <div>
             <div class="imageClassBlue">
               <p class="headerClass">
@@ -72,6 +76,7 @@ export default class extends React.Component {
             english={this.props.english}
           />
         </div>
+
       );
     }
   }
