@@ -23,12 +23,13 @@ export default class extends React.Component {
 
 
   componentDidMount() {
-    const hostname = window.location.hostname;
-    const uri = (hostname == "localhost" ? "http://" : "https://") +
-    hostname +
-    ":9000/api/recipesForCategory?" + "category=" + this.category;  
+    // const hostname = window.location.hostname;
+    // const uri = (hostname == "localhost" ? "http://" : "https://") +
+    // hostname +
+    // ":9000/api/recipesForCategory?" + "category=" + this.category;  
+    const uri =
+      "http://localhost:9000/api/recipesForCategory?category=" + this.category;
 
-    console.log(uri)
     fetch(uri)
       .then((res) => res.json())
       .then((res) => this.setState({ recipes: this.state.recipes.concat(res) }))
