@@ -14,9 +14,10 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-        //  const hostname = window.location.hostname;
-        //  const uri = (hostname == "localhost" ? "http://" : "https://") + hostname + ":9000/api/types";
-        const uri = "http://localhost:9000/api/types";
+         const hostname = window.location.hostname;
+         const uri = "http://" + hostname + ":9000/api/types";
+         console.log(uri)
+        // const uri = "http://localhost:9000/api/types";
 
         fetch(uri)
             .then(res => res.json())

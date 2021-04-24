@@ -27,8 +27,10 @@ export default class extends React.Component {
     // const uri = (hostname == "localhost" ? "http://" : "https://") +
     // hostname +
     // ":9000/api/recipesForCategory?" + "category=" + this.category;  
+    // const uri = "http://" + hostname + ":9000/api/types";
+    const hostname = window.location.hostname;
     const uri =
-      "http://localhost:9000/api/recipesForCategory?category=" + this.category;
+      "http://" + hostname + ":9000/api/recipesForCategory?category=" + this.category;
 
     fetch(uri)
       .then((res) => res.json())
