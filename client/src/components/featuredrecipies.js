@@ -8,8 +8,6 @@ import RecipeTwo from '../images/featuredRecipes/recipe2.jpg'
 import RecipeThree from '../images/featuredRecipes/recipe3.jpg'
 
 
-
-
 export default class extends React.Component {
     
     render() {

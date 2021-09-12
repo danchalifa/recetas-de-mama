@@ -4,16 +4,12 @@ import { Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap'
 import ToggleSwitch from './toggleswitch.js'
 import './categorymosaic.js'
 import './navbar.css'
+import SearchBar from './searchbar/searchbar.js'
+import BookData from "./searchbar/data.json";
 
 export default class extends React.Component {   
 
-
-
       render() {
-        const [searchTerm, setSearchTerm] = React.useState("");
-        const handleChange = (event) => {
-          setSearchTerm(event.target.value);
-        };
 
         return (
           <Navbar bg="light" expand="lg" fixed="top">
@@ -33,6 +29,8 @@ export default class extends React.Component {
                 {/* <Nav.Link class='nav-links' href="/shop">Shop</Nav.Link> */}
               </Nav>
 
+              <SearchBar data={BookData} />
+
               <Form inline>
                 <ToggleSwitch
                   toggleHandler={this.props.toggleHandler}
@@ -42,18 +40,6 @@ export default class extends React.Component {
                   English
                 </div>
                 <div style={{ color: "white" }}>...</div>
-              </Form>
-
-              <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="mr-2"
-                  aria-label="Search"
-                  value={searchTerm}
-                  onChange={handleChange}
-                />
-                <Button variant="outline-success">Search</Button>
               </Form>
             </Navbar.Collapse>
           </Navbar>
