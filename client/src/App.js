@@ -30,10 +30,10 @@ class App extends Component {
     const { cookies } = this.props;
 
     if (checked) {
-      cookies.set("english", true, { path: "/",domain:"recetasdemama.org" });
+      cookies.set("english", true, { path: "/" });
       this.setState({ english: true });
     } else {
-      cookies.set("english", false, { path: "/",domain:"recetasdemama.org" });
+      cookies.set("english", false, { path: "/" });
       this.setState({ english: false });
     }
   };

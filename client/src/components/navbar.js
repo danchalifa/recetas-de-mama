@@ -7,28 +7,26 @@ import './navbar.css'
 
 export default class extends React.Component {   
 
+
+
       render() {
+        const [searchTerm, setSearchTerm] = React.useState("");
+        const handleChange = (event) => {
+          setSearchTerm(event.target.value);
+        };
+
         return (
           <Navbar bg="light" expand="lg" fixed="top">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link
-                  className="nav-links"
-                  href="/"
-                >
+                <Nav.Link className="nav-links" href="/">
                   Home
                 </Nav.Link>
-                <Nav.Link
-                  className="nav-links"
-                  href="/#categories"
-                >
+                <Nav.Link className="nav-links" href="/#categories">
                   Categories
                 </Nav.Link>
-                <Nav.Link
-                  className="nav-links"
-                  href="/about"
-                >
+                <Nav.Link className="nav-links" href="/about">
                   About
                 </Nav.Link>
                 {/* <Nav.Link class='nav-links' href="/categories">Categories</Nav.Link> */}
@@ -46,18 +44,17 @@ export default class extends React.Component {
                 <div style={{ color: "white" }}>...</div>
               </Form>
 
-              <div hidden>
-                <Form inline>
-                  <FormControl
-                    type="text"
-                    placeholder="Buscar..."
-                    className="mr-sm-2"
-                  />
-                  <Button className="nav-links" variant="outline-primary">
-                    Search
-                  </Button>
-                </Form>
-              </div>
+              <Form className="d-flex">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="mr-2"
+                  aria-label="Search"
+                  value={searchTerm}
+                  onChange={handleChange}
+                />
+                <Button variant="outline-success">Search</Button>
+              </Form>
             </Navbar.Collapse>
           </Navbar>
         );

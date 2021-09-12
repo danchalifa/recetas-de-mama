@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const sql = require('sqlite3').verbose();
 
+
 // Get Everything
 router.get("/recipes", function(req, res, next) {
 
@@ -86,6 +87,40 @@ router.get("/recipesForCategory/", function(req, res, next) {
     // close the database connection
     db.close();  
 
+});
+
+
+// Recipes within the Categories
+router.get("/dynamicsearch/", function(req, res, next) {
+  let searchTerm = req.query.searchTerm;
+  let url = "http://localhost:9200/_search?pretty";
+  console.log(searchTerm);
+  let body = {
+    query: {
+      multi_match: {
+        query: searchTerm,
+        fields: ["Name", "Name_English"],
+      },
+    },
+  };
+
+
+ const request = require("request");
+
+ request.post(
+   {
+     url: "http://localhost:9200/_search?pretty",
+     body: body,
+     json: true,
+   },
+   function (error, response, body) {
+     console.log(body);
+     let recipes = body.hits.hits;
+     res.send(recipes);
+   }
+ );
+
+//   res.send("500");
 });
 
 
