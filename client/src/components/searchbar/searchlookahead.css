@@ -7,5 +7,9 @@
 
 .dataResult{
     background-color: white;
+}
 
+.recipe:hover{
+    cursor: pointer;
+    background-color:purple;
 }

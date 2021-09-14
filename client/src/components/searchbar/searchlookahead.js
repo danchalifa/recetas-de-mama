@@ -5,7 +5,7 @@ import recipe from "../recipe";
 import './searchlookahead.css'
 
 
-
+// TODO: Make this a standard component
 function SearchLookahead({ data, setSearchedRecipes }) {
   const history = useHistory();
   var handleClick = (recipe) => {
@@ -24,7 +24,7 @@ function SearchLookahead({ data, setSearchedRecipes }) {
         <div className="dataResult">
           {data.slice(0, 15).map((value, key) => {
             return (
-              <div onClick={() => handleClick(value)}>
+              <div className="recipe" onClick={() => handleClick(value)}>
                 <p>{value.Name_English} </p>
               </div>
             );
