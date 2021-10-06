@@ -1,42 +1,93 @@
 version: '3.6'
 services:
+  elasticsearch1:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+    container_name: elasticsearch1
+    environment:
+      - node.name=master-node
+      - node.master=true
+      - cluster.name=es-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "cluster.initial_master_nodes=master-node"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es-data01:/usr/share/elasticsearch/data
+    ports:
+      - 127.0.0.1:9200:9200
+      - 127.0.0.1:9300:9300
+    networks:
+      - elastic
+    stdin_open: true
+    tty: true
+
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+    container_name: elasticsearch2
+    environment:
+      - node.name=data-node1
+      - node.master=false
+      - cluster.name=es-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "cluster.initial_master_nodes=master-node"
+    ports:
+      - 127.0.0.1:9301:9300
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es-data02:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+    stdin_open: true
+    tty: true
+
   api:
     image: node:10.15.3-alpine
-    container_name: tqd-node
-    build: .
+    container_name: api
+    build: ./api
     ports:
-      - 3000:3000
+      - 9000:9000
     environment:
      - NODE_ENV=local
      - ES_HOST=elasticsearch
-     - NODE_PORT=3000
+     - NODE_PORT=9000
      - ELASTIC_URL=http://elasticsearch:9200
     volumes:
       - .:/usr/src/app/quotes
     command: npm run start
     links:
-        - elasticsearch
+        - elasticsearch1
+        - elasticsearch2
     depends_on:
-        - elasticsearch
-    networks: 
-      - esnet
-  elasticsearch:
-    container_name: tqd-elasticsearch
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.1
-    volumes:
-      - esdata:/usr/share/elasticsearch/data
-    environment:
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - discovery.type=single-node
-    logging:
-      driver: none
+        - elasticsearch1
+        - elasticsearch2
+  client:
+    image: node:10.15.3-alpine
+    container_name: client
+    build: ./client
     ports:
-      - 9300:9300
-      - 9200:9200
-    networks: 
-      - esnet
+      - 3000:3000
+    environment:
+     - NODE_ENV=local
+     - NODE_PORT=3000
+    volumes:
+      - .:/usr/src/app/quotes
+    command: npm run start
+    depends_on:
+      - api
+
 volumes:
-  esdata:
+  es-data01:
+    driver: local
+  es-data02:
+    driver: local
+
 networks:
-  esnet:
+  elastic:
+   driver: bridge

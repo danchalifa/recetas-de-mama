@@ -115,12 +115,14 @@ router.get("/dynamicsearch/", function(req, res, next) {
    },
    function (error, response, body) {
      console.log(body);
-     let recipes = body.hits.hits;
-     res.send(recipes);
+     if(body != null){
+        let recipes = body.hits.hits;
+        res.send(recipes);
+     }
+     
    }
  );
 
-//   res.send("500");
 });
 
 
