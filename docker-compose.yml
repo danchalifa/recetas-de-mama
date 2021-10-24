@@ -23,7 +23,6 @@ services:
       - elastic
     stdin_open: true
     tty: true
-
   elasticsearch2:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
     container_name: elasticsearch2
@@ -47,6 +46,36 @@ services:
     stdin_open: true
     tty: true
 
+
+  kibana:
+    container_name: kibana
+    build: ./kibana
+    image: kibana
+    ports:
+    - "5601:5601"
+    links:
+      - elasticsearch1
+      - elasticsearch2
+    depends_on:
+      - elasticsearch1
+      - elasticsearch2
+
+  logstash:
+    container_name: logstash
+    build: ./logstash
+    image: logstash
+    links:
+      - elasticsearch1
+      - elasticsearch2
+    ports:
+      - "5000:5000"
+    volumes:
+    - ./:/config-dir
+    command: logstash
+    depends_on:
+      - elasticsearch1
+      - elasticsearch2
+
   api:
     image: node:10.15.3-alpine
     container_name: api
@@ -57,7 +86,7 @@ services:
      - NODE_ENV=local
      - ES_HOST=elasticsearch
      - NODE_PORT=9000
-     - ELASTIC_URL=http://elasticsearch:9200
+     - ELASTIC_URL=http://elasticsearch1:9200
     volumes:
       - .:/usr/src/app/quotes
     command: npm run start
