@@ -20,5 +20,7 @@ app.use("/", indexRouter);
 app.use("/api", APIRouter);
 
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.listen(PORT, function (err) {
+  if (err) console.log("Error in server setup");
+  console.log("Server listening on Port", PORT);
+});

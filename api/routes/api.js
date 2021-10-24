@@ -11,7 +11,7 @@ router.get("/recipes", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB_v5.db');
+    let db = new sqlite3.Database('./db/RecipesDB_v5.db');
 
     let sql = `SELECT * FROM RECIPES_FULL;`;
 
@@ -38,7 +38,7 @@ router.get("/types", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB_v5.db');
+    let db = new sqlite3.Database('./db/RecipesDB_v5.db');
 
     let sql = `select * from CATEGORY_DIM
 `;
@@ -66,7 +66,7 @@ router.get("/recipesForCategory/", function(req, res, next) {
     const sqlite3 = require('sqlite3').verbose();
 
     // open the database
-    let db = new sqlite3.Database('../db/RecipesDB_v5.db');
+    let db = new sqlite3.Database('./db/RecipesDB_v5.db');
 
     let sql =
       "SELECT Name, Name_English, ingredientes, direcciones, Ingredients_English, Directions_English, prep_time, cook_time, catid FROM RECIPES_FULL where catid =";
@@ -93,7 +93,7 @@ router.get("/recipesForCategory/", function(req, res, next) {
 // Recipes within the Categories
 router.get("/dynamicsearch/", function(req, res, next) {
   let searchTerm = req.query.searchTerm;
-  let url = "http://localhost:9200/_search?pretty";
+  let url = "http://elasticsearch:9200/_search?pretty";
   console.log(searchTerm);
   let body = {
     query: {
@@ -109,17 +109,16 @@ router.get("/dynamicsearch/", function(req, res, next) {
 
  request.post(
    {
-     url: "http://localhost:9200/_search?pretty",
+     url: url,
      body: body,
      json: true,
    },
    function (error, response, body) {
      console.log(body);
-     if(body != null){
-        let recipes = body.hits.hits;
-        res.send(recipes);
+     if (body != null) {
+       let recipes = body.hits.hits;
+       res.send(recipes);
      }
-     
    }
  );
 

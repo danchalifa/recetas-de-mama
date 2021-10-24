@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json .
 COPY routes ./routes
+COPY db ./db
 
 COPY app.js ./
 

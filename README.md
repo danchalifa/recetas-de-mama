@@ -12,6 +12,10 @@ There are two separate apps. The Client which serves the FrontEnd (using React),
 2. Run `npm install` to install all dependencies.
 3. Run `npm start` to start the app
 
+## How to run Elastic Search
+1. Run docker-compose-elastic.yml
+
+
 ## Check if they are connected
 1. With the two apps running, open your browser in http://localhost:3000/.
 2. Enjoy!

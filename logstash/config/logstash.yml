@@ -321,7 +321,8 @@
 #xpack.management.elasticsearch.username: logstash_admin_user
 #xpack.management.elasticsearch.password: password
 #xpack.management.elasticsearch.proxy: ["http://proxy:port"]
-xpack.management.elasticsearch.hosts: ["http://elasticsearch1:9200", "http://elasticsearch2:9300"]
+xpack.management.elasticsearch.hosts: ["http://elasticsearch:9200"]
+monitoring.elasticsearch.hosts: ["http://elasticsearch:9200"]
 # an alternative to hosts + username/password settings is to use cloud_id/cloud_auth
 #xpack.management.elasticsearch.cloud_id: management_cluster_id:xxxxxxxxxx
 #xpack.management.elasticsearch.cloud_auth: logstash_admin_user:password

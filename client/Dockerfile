@@ -8,7 +8,6 @@ COPY public ./public
 COPY src ./src
 COPY build ./build
 
-
 RUN npm install 
 
 RUN npm install -g pm2
