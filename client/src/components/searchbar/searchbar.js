@@ -10,13 +10,7 @@ function SearchBar({ placeholder }) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
 
-    //localhost:9000/api/dynamicsearch?searchTerm=green%20
-
-    const hostname = window.location.hostname;
-    const uri =
-      "http://" + hostname + ":9000/api/dynamicsearch?searchTerm=" + searchWord;
-
-    fetch(uri)
+    fetch("/api/dynamicsearch?searchTerm=" + searchWord)
       .then((res) => res.json())
       .then((res) => {
 
