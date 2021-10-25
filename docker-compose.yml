@@ -74,10 +74,11 @@ services:
       - elasticsearch
       - logstash
       - elasticsearch2
-  api:
-    image: api
-    container_name: api
-    build: ./api
+      
+  app:
+    image: app
+    container_name: app
+    build: .
     ports:
       - "9000:9000"
     volumes:
@@ -88,24 +89,6 @@ services:
     depends_on:
         - elasticsearch
         - elasticsearch2
-    networks:
-      - elastic
-
-  client:
-    image: client
-    container_name: client
-    build: ./client
-    ports:
-      - "3000:3000"
-    environment:
-     - NODE_ENV=local
-     - NODE_PORT=3000
-    volumes:
-      - .:/usr/src/app/quotes
-    links:
-      - api
-    depends_on:
-      - api
     networks:
       - elastic
 
