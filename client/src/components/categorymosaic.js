@@ -14,15 +14,12 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-         const hostname = window.location.hostname;
-         const uri = "http://" + hostname + ":9000/api/types";
-         console.log(uri)
-        // const uri = "http://localhost:9000/api/types";
-
-        fetch(uri)
-            .then(res => res.json())
-            .then(res => this.setState({ categories: this.state.categories.concat(res)}))
-            .catch(err => err);
+        fetch("/api/types")
+          .then((res) => res.json())
+          .then((res) =>
+            this.setState({ categories: this.state.categories.concat(res) })
+          )
+          .catch((err) => err);
     }
 
     render() {
@@ -74,11 +71,11 @@ const Mosaic = (props)=> {
   const classes = useStyles();
 
   var handleClick = (category) =>{
-    // var categoryParsed = category.replace(/[^\w\s]/gi, '')
-    var route = "/category/" + category.CatID;
 
-    history.push(route
-      ,{...props, categoryInContext:category})
+    history.push("/category/" + category.CatID, {
+      ...props,
+      categoryInContext: category,
+    });
 
   } 
   if(props.english){
